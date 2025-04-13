@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Anthony Platanios | TensorFlow Scala</title>
-  <meta name="description" content="Personal website of Anthony Platanios.">
+  <title>Cheng-Hau Yang | TensorFlow Scala</title>
+  <meta name="description" content="Personal website of Cheng-Hau Yang.">
 
   <!-- Fonts and Icons -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons" />
@@ -24,7 +24,7 @@
   <nav id="navbar" class="navbar fixed-top navbar-expand-md grey lighten-5 z-depth-1 navbar-light">
     <div class="container-fluid p-0">
       
-        <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Anthony</span> Platanios</a>
+        <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Cheng-Hau</span> Yang</a>
       
       <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -73,9 +73,8 @@
           
             
               <li class="nav-item ">
-                  <a class="nav-link" href="/teaching/">
-                    teaching
-                    
+<!--                  <a class="nav-link" href="/teaching/"> -->
+<!--                    teaching -->
                   </a>
               </li>
             
@@ -125,10 +124,10 @@ this library yet.</p>
 are a few useful links:</p>
 
 <ul>
-  <li><a href="https://eaplatanios.github.io/tensorflow_scala/installation.html">Installation</a></li>
-  <li><a href="https://eaplatanios.github.io/tensorflow_scala/getting_started.html">Getting Started Guide</a></li>
-  <li><a href="https://eaplatanios.github.io/tensorflow_scala/architecture.html">Library Architecture</a></li>
-  <li><a href="https://eaplatanios.github.io/tensorflow_scala/contributing.html">Contributing</a></li>
+  <li><a href="https://eaYang.github.io/tensorflow_scala/installation.html">Installation</a></li>
+  <li><a href="https://eaYang.github.io/tensorflow_scala/getting_started.html">Getting Started Guide</a></li>
+  <li><a href="https://eaYang.github.io/tensorflow_scala/architecture.html">Library Architecture</a></li>
+  <li><a href="https://eaYang.github.io/tensorflow_scala/contributing.html">Contributing</a></li>
 </ul>
 
 <h2 id="main-features">Main Features</h2>
@@ -147,9 +146,9 @@ are a few useful links:</p>
 is to train a multi-layer perceptron for MNIST using TensorFlow for Scala. Here we omit a lot of very powerful 
 features such as summary and checkpoint savers, for simplicity, but these are also very simple to use.</p>
 
-    <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">org.platanios.tensorflow.api._</span>
-<span class="k">import</span> <span class="nn">org.platanios.tensorflow.api.tf.learn._</span>
-<span class="k">import</span> <span class="nn">org.platanios.tensorflow.data.loaders.MNISTLoader</span>
+    <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">org.Yang.tensorflow.api._</span>
+<span class="k">import</span> <span class="nn">org.Yang.tensorflow.api.tf.learn._</span>
+<span class="k">import</span> <span class="nn">org.Yang.tensorflow.data.loaders.MNISTLoader</span>
   
 <span class="c1">// Load and batch data using pre-fetching.</span>
 <span class="k">val</span> <span class="nv">dataSet</span> <span class="k">=</span> <span class="nv">MNISTLoader</span><span class="o">.</span><span class="py">load</span><span class="o">(</span><span class="nv">Paths</span><span class="o">.</span><span class="py">get</span><span class="o">(</span><span class="s">"/tmp"</span><span class="o">))</span>
@@ -203,7 +202,7 @@ integration with TensorBoard:</p>
   <li>
     <p>Low-level graph construction API, similar to that of the Python API, but strongly typed wherever possible:</p>
 
-    <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">org.platanios.tensorflow.api._</span>
+    <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">org.Yang.tensorflow.api._</span>
   
 <span class="k">val</span> <span class="nv">inputs</span> <span class="k">=</span> <span class="nv">tf</span><span class="o">.</span><span class="py">placeholder</span><span class="o">(</span><span class="nc">FLOAT32</span><span class="o">,</span> <span class="nc">Shape</span><span class="o">(-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">10</span><span class="o">))</span>
 <span class="k">val</span> <span class="nv">outputs</span> <span class="k">=</span> <span class="nv">tf</span><span class="o">.</span><span class="py">placeholder</span><span class="o">(</span><span class="nc">FLOAT32</span><span class="o">,</span> <span class="nc">Shape</span><span class="o">(-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">10</span><span class="o">))</span>
@@ -226,7 +225,7 @@ integration with TensorBoard:</p>
     <p>Efficient interaction with the native library that avoids unnecessary copying of data. All tensors are created and 
 managed by the native TensorFlow library. When they are passed to the Scala API (e.g., fetched from a TensorFlow 
 session), we use a combination of weak references and a disposing thread running in the background. Please refer to 
-<a href="https://github.com/eaplatanios/tensorflow_scala/blob/master/modules/api/src/main/scala/org/platanios/tensorflow/api/utilities/Disposer.scala"><code class="language-plaintext highlighter-rouge">Disposer.scala</code></a>,
+<a href="https://github.com/eaYang/tensorflow_scala/blob/master/modules/api/src/main/scala/org/Yang/tensorflow/api/utilities/Disposer.scala"><code class="language-plaintext highlighter-rouge">Disposer.scala</code></a>,
 for the implementation.</p>
   </li>
 </ul>
@@ -249,7 +248,7 @@ for the implementation.</p>
     </td>
   </tr>
   <tr>
-    <td class="p-1 font-weight-light text-center"><b>CMU Presidential Fellowship</b> <br />awarded to <br />Emmanouil Antonios Platanios</td>
+    <td class="p-1 font-weight-light text-center"><b>CMU Presidential Fellowship</b> <br />awarded to <br />Emmanouil Antonios Yang</td>
     <td class="p-1 font-weight-light text-center"><b>National Science Foundation</b> <br />Grant #: IIS1250956</td>
     <td class="p-1 font-weight-light text-center"><b>Air Force Office of Scientific Research</b> <br />Grant #: FA95501710218</td>
   </tr>
@@ -262,7 +261,7 @@ for the implementation.</p>
 
   <!-- Footer -->
   <footer>
-    &copy; Copyright 2024 Anthony Platanios.
+    &copy; Copyright 2024 Cheng-Hau Yang.
     
     
   </footer>
@@ -289,17 +288,17 @@ for the implementation.</p>
     
       
         
-        githubStars("eaplatanios/symphony-mt", function(stars) { $("#curriculum-learningeaplatanios-symphony-mt-stars").text('' + stars); });
+        githubStars("eaYang/symphony-mt", function(stars) { $("#curriculum-learningeaYang-symphony-mt-stars").text('' + stars); });
       
     
       
         
-        githubStars("eaplatanios/jelly-bean-world", function(stars) { $("#jelly-bean-worldeaplatanios-jelly-bean-world-stars").text('' + stars); });
+        githubStars("eaYang/jelly-bean-world", function(stars) { $("#jelly-bean-worldeaYang-jelly-bean-world-stars").text('' + stars); });
       
     
       
         
-        githubStars("eaplatanios/symphony-mt", function(stars) { $("#machine-translationeaplatanios-symphony-mt-stars").text('' + stars); });
+        githubStars("eaYang/symphony-mt", function(stars) { $("#machine-translationeaYang-symphony-mt-stars").text('' + stars); });
       
     
       
@@ -308,7 +307,7 @@ for the implementation.</p>
     
       
         
-        githubStars("eaplatanios/tensorflow_scala", function(stars) { $("#TensorFlow-Scalaeaplatanios-tensorflow_scala-stars").text('' + stars); });
+        githubStars("eaYang/tensorflow_scala", function(stars) { $("#TensorFlow-ScalaeaYang-tensorflow_scala-stars").text('' + stars); });
       
     
   </script>
