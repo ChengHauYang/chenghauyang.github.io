@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://chenghauyang.github.io/</loc>
+    <lastmod>2025-11-01</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://chenghauyang.github.io/cv/</loc>
+    <lastmod>2025-11-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chenghauyang.github.io/projects/</loc>
+    <lastmod>2025-11-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chenghauyang.github.io/publications/</loc>
+    <lastmod>2025-11-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+</urlset>
