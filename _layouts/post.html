@@ -1,0 +1,29 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+  {% include head.html %}
+</head>
+
+<body>
+
+{% include navbar.html %}
+
+<div class="content mt-5 pt-5">
+
+  <div class="container" style="max-width: 900px;">
+    <h1 class="title mt-4 mb-3 font-weight-bold">{{ page.title }}</h1>
+    <p class="text-muted mb-4">{{ page.date | date: "%B %d, %Y" }}</p>
+
+    <article class="page__content">
+      {{ content }}
+    </article>
+  </div>
+
+</div>
+
+{% include footer.html %}
+
+</body>
+</html>
