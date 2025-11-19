@@ -1,29 +1,80 @@
----
----
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  {% include head.html %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ page.title }} | Cheng-Hau Yang</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | strip }}">
+
+  <!-- Fonts and Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons" />
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="/assets/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/academicons.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
 </head>
 
 <body>
 
-{% include navbar.html %}
+<!-- NAVBAR -->
+<nav id="navbar" class="navbar fixed-top navbar-expand-md grey lighten-5 z-depth-1 navbar-light">
+  <div class="container-fluid p-0">
 
-<div class="content mt-5 pt-5">
+    <div class="row ml-1 ml-sm-0">
+      <span class="contact-icon text-center" style="line-height: 1em;">
+        <a href="https://scholar.google.com/citations?user=RZqCEWIAAAAJ" target="_blank"><i class="ai ai-google-scholar-square gs-icon"></i></a>
+        <a href="https://github.com/ChengHauYang" target="_blank"><i class="fab fa-github-square gh-icon"></i></a>
+        <a href="https://www.linkedin.com/in/ychenghau" target="_blank"><i class="fab fa-linkedin li-icon"></i></a>
+      </span>
+    </div>
 
-  <div class="container" style="max-width: 900px;">
-    <h1 class="title mt-4 mb-3 font-weight-bold">{{ page.title }}</h1>
-    <p class="text-muted mb-4">{{ page.date | date: "%B %d, %Y" }}</p>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <article class="page__content">
-      {{ content }}
-    </article>
+    <div class="collapse navbar-collapse text-right" id="navbarNav">
+      <ul class="navbar-nav ml-auto flex-nowrap">
+        <li class="nav-item"><a class="nav-link" href="/">about</a></li>
+        <li class="nav-item"><a class="nav-link" href="/cv/">cv</a></li>
+        <li class="nav-item"><a class="nav-link" href="/projects/">projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="/publications/">publications</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<!-- MAIN CONTENT WRAPPER -->
+<div class="content container mt-5 pt-4">
+
+  <h1 class="title font-weight-bold text-center">{{ page.title }}</h1>
+
+  {% if page.date %}
+  <p class="text-center text-muted">{{ page.date | date: "%B %d, %Y" }}</p>
+  {% endif %}
+
+  <hr>
+
+  <div class="post-content mt-4">
+    {{ content }}
   </div>
 
 </div>
 
-{% include footer.html %}
+<!-- FOOTER -->
+<footer class="text-center mt-5 mb-3">
+  &copy; Copyright 2025 Cheng-Hau Yang.
+</footer>
+
+<!-- JavaScript -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/mdb.min.js"></script>
 
 </body>
 </html>
