@@ -22,5 +22,27 @@ Finally, thanks to my family, colleagues at ISU, and my team at ANL for your enc
 
 ## Pictures
 
-<img src="/assets/img/melosh/p1.jpg" class="post-img">
-<img src="/assets/img/melosh/p2.JPG" class="post-img">
+<div class="post-img-grid">
+
+  <figure class="post-img-wide">
+    <img src="/assets/img/melosh/p1.jpg" alt="Melosh Medal finalists and judges at the reception" class="post-img">
+    <figcaption>
+      Melosh Medal judges, finalists, and professors at the evening reception.
+    </figcaption>
+  </figure>
+
+  <figure class="post-img-wide">
+    <img src="/assets/img/melosh/p2.JPG" alt="Melosh Medal finalists with Professor Scovazzi at Duke Gardens" class="post-img">
+    <figcaption>
+      A quick photo with the finalists and Professor Scovazzi at Duke Gardens.
+    </figcaption>
+  </figure>
+
+  <figure class="post-img-wide">
+    <img src="/assets/img/melosh/p3.jpg" alt="Cheng-Hau Yang holding the Robert J. Melosh Medal plaque" class="post-img">
+    <figcaption>
+      Holding the Robert J. Melosh Medal plaque.
+    </figcaption>
+  </figure>
+
+</div>
