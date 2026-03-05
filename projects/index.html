@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,7 +9,8 @@
   <meta name="description" content="Personal website of Cheng-Hau Yang.">
 
   <!-- Fonts and Icons -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons" />
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons" />
 
   <!-- CSS Files -->
   <link rel="stylesheet" href="/assets/css/all.min.css">
@@ -19,14 +21,17 @@
   <!-- Scripts -->
   <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 </head>
+
 <body>
   <!-- Header -->
   <nav id="navbar" class="navbar fixed-top navbar-expand-md grey lighten-5 z-depth-1 navbar-light">
     <div class="container-fluid p-0">
 
-        <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Cheng-Hau</span> Yang</a>
+      <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Cheng-Hau</span>
+        Yang</a>
 
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse text-right" id="navbarNav">
@@ -41,42 +46,42 @@
 
 
 
-              <li class="nav-item ">
-                  <a class="nav-link" href="/cv/">
-                    cv
+          <li class="nav-item ">
+            <a class="nav-link" href="/cv/">
+              cv
 
-                  </a>
-              </li>
-
-
+            </a>
+          </li>
 
 
 
-              <li class="nav-item navbar-active font-weight-bold">
-                  <a class="nav-link" href="/projects/">
-                    projects
-
-                      <span class="sr-only">(current)</span>
-
-                  </a>
-              </li>
 
 
+          <li class="nav-item navbar-active font-weight-bold">
+            <a class="nav-link" href="/projects/">
+              projects
 
-              <li class="nav-item ">
-                  <a class="nav-link" href="/publications/">
-                    publications
+              <span class="sr-only">(current)</span>
 
-                  </a>
-              </li>
+            </a>
+          </li>
 
 
 
-              <li class="nav-item ">
-<!--                  <a class="nav-link" href="/teaching/"> -->
-<!--                    teaching -->
-                  </a>
-              </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/publications/">
+              publications
+
+            </a>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <!--                  <a class="nav-link" href="/teaching/"> -->
+            <!--                    teaching -->
+            </a>
+          </li>
 
 
 
@@ -96,519 +101,246 @@
   <!-- Content -->
   <div class="content">
 
-    
-  <h1>projects</h1>
 
-      <div class="project">
-          <h2>Left ventricle simulations Using the Immersogeometric Analysis</h2>
-          <p>
-              This project focuses on simulating the left ventricle using immersogeometric analysis. I am responsible for generating volumetric meshes for the finite element method (FEM) from non-watertight surface meshes provided by UT Austin. In addition, I implemented the Fortran code that reads the displacement of the heart wall and the mitral valve, applying them as velocity boundary conditions for the fluid domain. The simulation follows a one-way coupling approach.
-          </p>
-          <div class="video-container" style="text-align:center; margin-top: 1.5em;">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/e6eP7OAAQUk"
-                      title="Left ventricle simulation" frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-          </div>
+    <h1>projects</h1>
+
+    <div class="project">
+      <h2>Left ventricle simulations Using the Immersogeometric Analysis</h2>
+      <p>
+        This project focuses on simulating the left ventricle using immersogeometric analysis. I am responsible for
+        generating volumetric meshes for the finite element method (FEM) from non-watertight surface meshes provided by
+        UT Austin. In addition, I implemented the Fortran code that reads the displacement of the heart wall and the
+        mitral valve, applying them as velocity boundary conditions for the fluid domain. The simulation follows a
+        one-way coupling approach.
+      </p>
+      <div class="video-container" style="text-align:center; margin-top: 1.5em;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/e6eP7OAAQUk"
+          title="Left ventricle simulation" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
       </div>
+    </div>
 
-      <div class="project">
-          <h2>Pulsating Jet Simulations</h2>
-          <p>
-              Using the <a href="https://www.sciencedirect.com/science/article/abs/pii/S0021999122009378" target="_blank" rel="noopener noreferrer">
-              <em>Proteus</em> framework</a>, I implemented custom boundary and initial conditions for pulsating jet simulations. These simulations were executed on the
-              <a href="https://frontera.tacc.utexas.edu/" target="_blank" rel="noopener noreferrer">Frontera supercomputer</a>, followed by postprocessing and visualization of the results.
-          </p>
-          <div class="video-container" style="text-align:center; margin-top: 1.5em;">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/pmOrgdw2iDg"
-                      title="Pulsating Jet Simulations" frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-          </div>
+    <div class="project">
+      <h2>Pulsating Jet Simulations</h2>
+      <p>
+        Using the <a href="https://www.sciencedirect.com/science/article/abs/pii/S0021999122009378" target="_blank"
+          rel="noopener noreferrer">
+          <em>Proteus</em> framework</a>, I implemented custom boundary and initial conditions for pulsating jet
+        simulations. These simulations were executed on the
+        <a href="https://frontera.tacc.utexas.edu/" target="_blank" rel="noopener noreferrer">Frontera
+          supercomputer</a>, followed by postprocessing and visualization of the results.
+      </p>
+      <div class="video-container" style="text-align:center; margin-top: 1.5em;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/pmOrgdw2iDg"
+          title="Pulsating Jet Simulations" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
       </div>
+    </div>
 
-      <div class="project">
-          <h2>
-              <a href="https://doi.org/10.1016/j.jcp.2025.114334" target="_blank" rel="noopener noreferrer">
-                  Highly Parallel Incompressible Flow Simulations Using the Shifted Boundary Method
-              </a>
-          </h2>
-          <p>
-              This project focuses on simulating incompressible fluid flow over complex geometries using the Shifted Boundary Method, built on a highly parallel incomplete octree framework.
-          </p>
+    <div class="project">
+      <h2>
+        <a href="https://doi.org/10.1016/j.jcp.2025.114334" target="_blank" rel="noopener noreferrer">
+          Highly Parallel Incompressible Flow Simulations Using the Shifted Boundary Method
+        </a>
+      </h2>
+      <p>
+        This project focuses on simulating incompressible fluid flow over complex geometries using the Shifted Boundary
+        Method, built on a highly parallel incomplete octree framework.
+      </p>
 
-          <div class="video-container" style="text-align:center; margin-top: 1.5em;">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/HKeYDxtvWVY"
-                      title="Flow Passing a Sphere at Re = 3700" frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-          </div>
+      <div class="video-container" style="text-align:center; margin-top: 1.5em;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/HKeYDxtvWVY"
+          title="Flow Passing a Sphere at Re = 3700" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
       </div>
+    </div>
 
-      <div class="project">
-          <h2>
-              <a href="https://www.aimsciences.org/article/doi/10.3934/acse.2025012" target="_blank" rel="noopener noreferrer">
-                  Efficient simulations based on Shifted Boundary Method and Adaptive Mesh Refinement
-              </a>
-          </h2>
-          <p>This project focuses on simulating fluid flow over complex geometries using the Shifted Boundary Method and dynamic adaptive octree meshes.</p>
+    <div class="project">
+      <h2>
+        <a href="https://www.aimsciences.org/article/doi/10.3934/acse.2025012" target="_blank"
+          rel="noopener noreferrer">
+          Efficient simulations based on Shifted Boundary Method and Adaptive Mesh Refinement
+        </a>
+      </h2>
+      <p>This project focuses on simulating fluid flow over complex geometries using the Shifted Boundary Method and
+        dynamic adaptive octree meshes.</p>
 
-          <div class="video-container" style="text-align:center; margin-top: 1.5em;">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/apLB7ONXT5c"
-                      title="Natural convection past a star-shaped domain using AMR" frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-          </div>
+      <div class="video-container" style="text-align:center; margin-top: 1.5em;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/apLB7ONXT5c"
+          title="Natural convection past a star-shaped domain using AMR" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
       </div>
+    </div>
 
 
-      <div class="project">
-          <h2>
-              <a href="https://openreview.net/forum?id=0xrOmmB2KQ" target="_blank" rel="noopener noreferrer">
-                  FlowBench: Incompressible Flow Simulations Dataset over Complex Geometries for SciML
-              </a>
-          </h2>
-          <p>
-              This framework was used to generate simulations of flow past complex geometries and
-              lid-driven cavity flow with obstacles for training scientific machine learning (SciML) models.
-          </p>
+    <div class="project">
+      <h2>
+        <a href="https://openreview.net/forum?id=0xrOmmB2KQ" target="_blank" rel="noopener noreferrer">
+          FlowBench: Incompressible Flow Simulations Dataset over Complex Geometries for SciML
+        </a>
+      </h2>
+      <p>
+        This framework was used to generate simulations of flow past complex geometries and
+        lid-driven cavity flow with obstacles for training scientific machine learning (SciML) models.
+      </p>
 
-          <div class="video-container" style="text-align:center; margin-top: 1.5em;">
-              <video width="560" height="315" controls>
-                  <source src="videos/Argonne_h264.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-              </video>
-              <p style="text-align:center; font-style: italic; margin-top: 0.5em;">
-                  Flow past complex geometry (Argonne) using the Shifted Boundary Method.    </p>
-          </div>
+      <div class="video-container" style="text-align:center; margin-top: 1.5em;">
+        <video width="560" height="315" controls>
+          <source src="videos/Argonne_h264.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p style="text-align:center; font-style: italic; margin-top: 0.5em;">
+          Flow past complex geometry (Argonne) using the Shifted Boundary Method. </p>
       </div>
+    </div>
 
 
-      <div class="project">
-          <h2>
-              <a href="https://www.osti.gov/biblio/2583685" target="_blank" rel="noopener noreferrer">
-                  Improved Convergence and User Experience of Welding Simulations
-              </a>
-          </h2>
+    <div class="project">
+      <h2>
+        <a href="https://www.osti.gov/biblio/2583685" target="_blank" rel="noopener noreferrer">
+          Improved Convergence and User Experience of Welding Simulations
+        </a>
+      </h2>
 
-          <p>
-              To enhance user-friendliness and improve the convergence of
-              <strong>welding simulations</strong>, we introduced several key implementations:
-          </p>
+      <p>
+        To enhance user-friendliness and improve the convergence of
+        <strong>welding simulations</strong>, we introduced several key implementations:
+      </p>
 
-          <ul>
-              <li>
-                  <a href="https://github.com/idaholab/moose/pull/30300" target="_blank" rel="noopener noreferrer">
-                      Central block-restrictable control
-                  </a>
-              </li>
-              <li>
-                  <a href="https://github.com/idaholab/moose/pull/30630" target="_blank" rel="noopener noreferrer">
-                      Improved initial condition settings for newly activated elements via IC (Initial Condition) extrapolation using patch recovery
-                  </a>
-              </li>
-              <li>
-                  <a href="https://github.com/idaholab/blackbear/pull/417" target="_blank" rel="noopener noreferrer">
-                      A new <strong>Action</strong> enabling users to simulate the <strong>heated material addition process</strong> in welding simulations
-                  </a>
-              </li>
-          </ul>
+      <ul>
+        <li>
+          <a href="https://github.com/idaholab/moose/pull/30300" target="_blank" rel="noopener noreferrer">
+            Central block-restrictable control
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/idaholab/moose/pull/30630" target="_blank" rel="noopener noreferrer">
+            Improved initial condition settings for newly activated elements via IC (Initial Condition) extrapolation
+            using patch recovery
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/idaholab/blackbear/pull/417" target="_blank" rel="noopener noreferrer">
+            A new <strong>Action</strong> enabling users to simulate the <strong>heated material addition
+              process</strong> in welding simulations
+          </a>
+        </li>
+      </ul>
 
-          <div class="video-container" style="text-align:center; margin-top: 1.5em;">
-              <video width="560" height="315" controls>
-                  <source src="videos/bfm-IC-noIC.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-              </video>
-              <p style="font-style: italic; margin-top: 0.5em;">
-                  Welding simulation without and with IC extrapolation -- left: without IC extrapolation; right: with IC extrapolation.
-              </p>
-          </div>
+      <p>
+        In FY26, we extended libMesh projection APIs to support
+        <strong>selected elements and variables</strong>
+        (<a href="https://github.com/libMesh/libmesh/pull/4368" target="_blank" rel="noopener noreferrer">PR #4368</a>),
+        improving the reinitialization workflow of
+        <a href="https://github.com/idaholab/moose/pull/32385" target="_blank"
+          rel="noopener noreferrer">ElementSubdomainModifier</a>.
+      </p>
+
+      <div class="video-container" style="text-align:center; margin-top: 1.5em;">
+        <video width="560" height="315" controls>
+          <source src="videos/bfm-IC-noIC.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p style="font-style: italic; margin-top: 0.5em;">
+          Welding simulation without and with IC extrapolation -- left: without IC extrapolation; right: with IC
+          extrapolation.
+        </p>
       </div>
+    </div>
 
-      <!--  <h6>some of the projects I have worked on</h6>-->
-
-
-<!--<div id="projects" class="row mt-2 pt-3" style="overflow: visible !important;">-->
-<!--  -->
-<!--  -->
-<!--    <div class="project-card">-->
-<!--      -->
-<!--        <a href="/projects/accuracy_estimation/">-->
-<!--      -->
-<!--        <div class="card">-->
-<!--          <img class="card-img-top" src="/assets/img/accuracy_estimation_logo.svg" alt="project thumbnail" />-->
-<!--          <div class="card-body">-->
-<!--            <h5 class="card-title text-lowercase">estimating accuracy from unlabeled data</h5>-->
-<!--            <p class="card-text">estimating accuracies of classifiers using only unlabeled data</p>-->
-<!--            <div class="row ml-1 mr-1 p-0">-->
-<!--              -->
-<!--              -->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--  -->
-<!--    <div class="project-card">-->
-<!--      -->
-<!--        <a href="/projects/machine_translation/">-->
-<!--      -->
-<!--        <div class="card">-->
-<!--          <img class="card-img-top" src="/assets/img/projects/machine_translation/machine_translation.svg" alt="project thumbnail" />-->
-<!--          <div class="card-body">-->
-<!--            <h5 class="card-title text-lowercase">machine translation</h5>-->
-<!--            <p class="card-text">enhacing machine translation using contextual parameter generation and curriculum learning</p>-->
-<!--            <div class="row ml-1 mr-1 p-0">-->
-<!--              -->
-<!--                <div class="wordpress-icon" data-toggle="tooltip" title="Blog Post">-->
-<!--                  <div class="icon">-->
-<!--                    <a href="https://blog.ml.cmu.edu/2019/01/14/contextual-parameter-generation-for-universal-neural-machine-translation/" target="_blank"><i class="fab fa-wordpress-simple wp-icon"></i></a>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              -->
-<!--              -->
-<!--                -->
-<!--                <div class="github-icon">-->
-<!--                  <div class="icon" data-toggle="tooltip" title="Code Repository">-->
-<!--                    <a href="https://github.com/eaYang/symphony-mt" target="_blank"><i class="fab fa-github gh-icon"></i></a>-->
-<!--                  </div>-->
-<!--                  <span class="stars" data-toggle="tooltip" title="GitHub Stars">-->
-<!--                    <i class="fas fa-star"></i>-->
-<!--                    <span id="machine-translationeaYang-symphony-mt-stars"></span>-->
-<!--                  </span>-->
-<!--                </div>-->
-<!--              -->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--  -->
-<!--    <div class="project-card">-->
-<!--      -->
-<!--        <a href="/projects/contextual_parameter_generation/">-->
-<!--      -->
-<!--        <div class="card">-->
-<!--          <img class="card-img-top" src="/assets/img/contextual_parameter_generation.svg" alt="project thumbnail" />-->
-<!--          <div class="card-body">-->
-<!--            <h5 class="card-title text-lowercase">contextual parameter generation</h5>-->
-<!--            <p class="card-text">enabling neural networks to better perform multi-task learning and more</p>-->
-<!--            <div class="row ml-1 mr-1 p-0">-->
-<!--              -->
-<!--                <div class="wordpress-icon" data-toggle="tooltip" title="Blog Post">-->
-<!--                  <div class="icon">-->
-<!--                    <a href="https://blog.ml.cmu.edu/2019/01/14/contextual-parameter-generation-for-universal-neural-machine-translation/" target="_blank"><i class="fab fa-wordpress-simple wp-icon"></i></a>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              -->
-<!--              -->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--  -->
-<!--    <div class="project-card">-->
-<!--      -->
-<!--        <a href="/projects/tensorflow_scala/">-->
-<!--      -->
-<!--        <div class="card">-->
-<!--          <img class="card-img-top" src="/assets/img/tensorflow_for_scala_logo.svg" alt="project thumbnail" />-->
-<!--          <div class="card-body">-->
-<!--            <h5 class="card-title text-lowercase">TensorFlow Scala</h5>-->
-<!--            <p class="card-text">type-safe linear algebra, tensors, and neural networks</p>-->
-<!--            <div class="row ml-1 mr-1 p-0">-->
-<!--              -->
-<!--              -->
-<!--                -->
-<!--                <div class="github-icon">-->
-<!--                  <div class="icon" data-toggle="tooltip" title="Code Repository">-->
-<!--                    <a href="https://github.com/eaYang/tensorflow_scala" target="_blank"><i class="fab fa-github gh-icon"></i></a>-->
-<!--                  </div>-->
-<!--                  <span class="stars" data-toggle="tooltip" title="GitHub Stars">-->
-<!--                    <i class="fas fa-star"></i>-->
-<!--                    <span id="TensorFlow-ScalaeaYang-tensorflow_scala-stars"></span>-->
-<!--                  </span>-->
-<!--                </div>-->
-<!--              -->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--  -->
-<!--    <div class="project-card">-->
-<!--      -->
-<!--        <a href="https://blog.ml.cmu.edu" target="_blank">-->
-<!--      -->
-<!--        <div class="card">-->
-<!--          <img class="card-img-top" src="/assets/img/cmu_mld_blog.svg" alt="project thumbnail" />-->
-<!--          <div class="card-body">-->
-<!--            <h5 class="card-title text-lowercase">cmu mld blog</h5>-->
-<!--            <p class="card-text">editor and founding member for the CMU machine learning department blog</p>-->
-<!--            <div class="row ml-1 mr-1 p-0">-->
-<!--              -->
-<!--              -->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--  -->
-<!--    <div class="project-card">-->
-<!--      -->
-<!--        <a href="/projects/nell/">-->
-<!--      -->
-<!--        <div class="card">-->
-<!--          <img class="card-img-top" src="/assets/img/nell/nell_logo.svg" alt="project thumbnail" />-->
-<!--          <div class="card-body">-->
-<!--            <h5 class="card-title text-lowercase">never-ending learning</h5>-->
-<!--            <p class="card-text">extracting a knowledge-base from the web, while constantly improving at it</p>-->
-<!--            <div class="row ml-1 mr-1 p-0">-->
-<!--              -->
-<!--              -->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--  -->
-<!--    <div class="project-card">-->
-<!--      -->
-<!--        <a href="/projects/jelly_bean_world/">-->
-<!--      -->
-<!--        <div class="card">-->
-<!--          <img class="card-img-top" src="/assets/img/jelly_bean_world.svg" alt="project thumbnail" />-->
-<!--          <div class="card-body">-->
-<!--            <h5 class="card-title text-lowercase">jelly-bean world</h5>-->
-<!--            <p class="card-text">a novel environment for experimenting with never-ending learning</p>-->
-<!--            <div class="row ml-1 mr-1 p-0">-->
-<!--              -->
-<!--              -->
-<!--                -->
-<!--                <div class="github-icon">-->
-<!--                  <div class="icon" data-toggle="tooltip" title="Code Repository">-->
-<!--                    <a href="https://github.com/eaYang/jelly-bean-world" target="_blank"><i class="fab fa-github gh-icon"></i></a>-->
-<!--                  </div>-->
-<!--                  <span class="stars" data-toggle="tooltip" title="GitHub Stars">-->
-<!--                    <i class="fas fa-star"></i>-->
-<!--                    <span id="jelly-bean-worldeaYang-jelly-bean-world-stars"></span>-->
-<!--                  </span>-->
-<!--                </div>-->
-<!--              -->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--  -->
-<!--    <div class="project-card">-->
-<!--      -->
-<!--        <a href="/projects/active_learning/">-->
-<!--      -->
-<!--        <div class="card">-->
-<!--          <img class="card-img-top" src="/assets/img/active_learning/active_learning_logo.svg" alt="project thumbnail" />-->
-<!--          <div class="card-body">-->
-<!--            <h5 class="card-title text-lowercase">active learning</h5>-->
-<!--            <p class="card-text">active learning amidst logical knowledge</p>-->
-<!--            <div class="row ml-1 mr-1 p-0">-->
-<!--              -->
-<!--              -->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--  -->
-<!--    <div class="project-card">-->
-<!--      -->
-<!--        <a href="/projects/curriculum_learning/">-->
-<!--      -->
-<!--        <div class="card">-->
-<!--          <img class="card-img-top" src="/assets/img/curriculum_learning.svg" alt="project thumbnail" />-->
-<!--          <div class="card-body">-->
-<!--            <h5 class="card-title text-lowercase">curriculum learning</h5>-->
-<!--            <p class="card-text">exploring how to more efficiently teach neural networks</p>-->
-<!--            <div class="row ml-1 mr-1 p-0">-->
-<!--              -->
-<!--              -->
-<!--                -->
-<!--                <div class="github-icon">-->
-<!--                  <div class="icon" data-toggle="tooltip" title="Code Repository">-->
-<!--                    <a href="https://github.com/eaYang/symphony-mt" target="_blank"><i class="fab fa-github gh-icon"></i></a>-->
-<!--                  </div>-->
-<!--                  <span class="stars" data-toggle="tooltip" title="GitHub Stars">-->
-<!--                    <i class="fas fa-star"></i>-->
-<!--                    <span id="curriculum-learningeaYang-symphony-mt-stars"></span>-->
-<!--                  </span>-->
-<!--                </div>-->
-<!--              -->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--  -->
-<!--</div>-->
+    <!-- Footer -->
+    <footer>
+      &copy; Copyright 2025 Cheng-Hau Yang.
 
 
-  </div>
+    </footer>
 
-  <!-- Footer -->
-  <footer>
-    &copy; Copyright 2025 Cheng-Hau Yang.
-    
-    
-  </footer>
+    <!-- Core JavaScript Files -->
+    <script src="/assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/js/popper.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/assets/js/mdb.min.js" type="text/javascript"></script>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+    <script src="/assets/js/common.js"></script>
 
-  <!-- Core JavaScript Files -->
-  <script src="/assets/js/jquery.min.js" type="text/javascript"></script>
-  <script src="/assets/js/popper.min.js" type="text/javascript"></script>
-  <script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
-  <script src="/assets/js/mdb.min.js" type="text/javascript"></script>
-  <script async="" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
-  <script src="/assets/js/common.js"></script>
-
-  <!-- GitHub Stars -->
-  <script src="/assets/js/github-stars.js"></script>
-  <script type="text/javascript">
-    
-      
-    
-      
-    
-      
-    
-      
-        
-        githubStars("eaYang/symphony-mt", function(stars) { $("#curriculum-learningeaYang-symphony-mt-stars").text('' + stars); });
-      
-    
-      
-        
-        githubStars("eaYang/jelly-bean-world", function(stars) { $("#jelly-bean-worldeaYang-jelly-bean-world-stars").text('' + stars); });
-      
-    
-      
-        
-        githubStars("eaYang/symphony-mt", function(stars) { $("#machine-translationeaYang-symphony-mt-stars").text('' + stars); });
-      
-    
-      
-    
-      
-    
-      
-        
-        githubStars("eaYang/tensorflow_scala", function(stars) { $("#TensorFlow-ScalaeaYang-tensorflow_scala-stars").text('' + stars); });
-      
-    
-  </script>
-
-  <!-- Scrolling Progress Bar -->
-  <script type="text/javascript">
-    $(document).ready(function() {
-      var navbarHeight = $('#navbar').outerHeight(true);
-      $('body').css({ 'padding-top': navbarHeight });
-      $('progress-container').css({ 'padding-top': navbarHeight });
-      var progressBar = $('#progress');
-      progressBar.css({ 'top': navbarHeight });
-      var getMax = function() { return $(document).height() - $(window).height(); }
-      var getValue = function() { return $(window).scrollTop(); }   
-      // Check if the browser supports the progress element.
-      if ('max' in document.createElement('progress')) {
-        // Set the 'max' attribute for the first time.
-        progressBar.attr({ max: getMax() });
-        progressBar.attr({ value: getValue() });
-    
-        $(document).on('scroll', function() {
-          // On scroll only the 'value' attribute needs to be calculated.
+    <!-- Scrolling Progress Bar -->
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var navbarHeight = $('#navbar').outerHeight(true);
+        $('body').css({ 'padding-top': navbarHeight });
+        $('progress-container').css({ 'padding-top': navbarHeight });
+        var progressBar = $('#progress');
+        progressBar.css({ 'top': navbarHeight });
+        var getMax = function () { return $(document).height() - $(window).height(); }
+        var getValue = function () { return $(window).scrollTop(); }
+        // Check if the browser supports the progress element.
+        if ('max' in document.createElement('progress')) {
+          // Set the 'max' attribute for the first time.
+          progressBar.attr({ max: getMax() });
           progressBar.attr({ value: getValue() });
-        });
 
-        $(window).resize(function() {
-          var navbarHeight = $('#navbar').outerHeight(true);
-          $('body').css({ 'padding-top': navbarHeight });
-          $('progress-container').css({ 'padding-top': navbarHeight });
-          progressBar.css({ 'top': navbarHeight });
-          // On resize, both the 'max' and 'value' attributes need to be calculated.
-          progressBar.attr({ max: getMax(), value: getValue() });
-        });
-      } else {
-        var max = getMax(), value, width;
-        var getWidth = function() {
-          // Calculate the window width as a percentage.
-          value = getValue();
-          width = (value/max) * 100;
-          width = width + '%';
-          return width;
-        }
-        var setWidth = function() { progressBar.css({ width: getWidth() }); };
-        setWidth();
-        $(document).on('scroll', setWidth);
-        $(window).on('resize', function() {
-          // Need to reset the 'max' attribute.
-          max = getMax();
+          $(document).on('scroll', function () {
+            // On scroll only the 'value' attribute needs to be calculated.
+            progressBar.attr({ value: getValue() });
+          });
+
+          $(window).resize(function () {
+            var navbarHeight = $('#navbar').outerHeight(true);
+            $('body').css({ 'padding-top': navbarHeight });
+            $('progress-container').css({ 'padding-top': navbarHeight });
+            progressBar.css({ 'top': navbarHeight });
+            // On resize, both the 'max' and 'value' attributes need to be calculated.
+            progressBar.attr({ max: getMax(), value: getValue() });
+          });
+        } else {
+          var max = getMax(), value, width;
+          var getWidth = function () {
+            // Calculate the window width as a percentage.
+            value = getValue();
+            width = (value / max) * 100;
+            width = width + '%';
+            return width;
+          }
+          var setWidth = function () { progressBar.css({ width: getWidth() }); };
           setWidth();
-        });
-      }
-    });
-  </script>
-
-  <!-- Code Syntax Highlighting -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <script src="/assets/js/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <!-- Script Used for Randomizing the Projects Order -->
-  <!-- <script type="text/javascript">
-    $.fn.shuffleChildren = function() {
-      $.each(this.get(), function(index, el) {
-        var $el = $(el);
-        var $find = $el.children();
-
-        $find.sort(function() {
-          return 0.5 - Math.random();
-        });
-
-        $el.empty();
-        $find.appendTo($el);
+          $(document).on('scroll', setWidth);
+          $(window).on('resize', function () {
+            // Need to reset the 'max' attribute.
+            max = getMax();
+            setWidth();
+          });
+        }
       });
-    };
-    $("#projects").shuffleChildren();
-  </script> -->
+    </script>
 
-  <!-- Project Cards Layout -->
-  <script type="text/javascript">
-    var $grid = $('#projects');
+    <!-- Code Syntax Highlighting -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <script src="/assets/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
-    // $grid.masonry({ percentPosition: true });
-    // $grid.masonry('layout');
+    <!-- Enable Tooltips -->
+    <script type="text/javascript">
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+    </script>
 
-    // Trigger after images load.
-    $grid.imagesLoaded().progress(function() {
-      $grid.masonry({ percentPosition: true });
-      $grid.masonry('layout');
-    });
-  </script>
-
-  <!-- Enable Tooltips -->
-  <script type="text/javascript">
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
-  </script>
-
-  <!-- Google Analytics -->
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-54519238-1', 'auto');
-    ga('send', 'pageview');
-  </script>
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-54519238-1', 'auto');
+      ga('send', 'pageview');
+    </script>
 </body>
+
 </html>
