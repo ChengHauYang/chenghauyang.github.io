@@ -193,10 +193,15 @@ h1.title {
 footer { color: var(--muted); }
 
 /* 6. Theme toggle button --------------------------------------- */
+#navbar > .container-fluid > .d-flex.align-items-center {
+  gap: 0.5rem;
+}
+
 .theme-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 36px;
   width: 36px;
   height: 36px;
   border: 1px solid var(--border);
@@ -218,6 +223,26 @@ footer { color: var(--muted); }
 [data-theme="dark"] .theme-toggle .icon-sun  { display: inline-block; }
 [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 .theme-toggle svg { width: 18px; height: 18px; }
+
+@media (min-width: 768px) {
+  #navbar > .container-fluid > .row,
+  #navbar > .container-fluid > .navbar-brand {
+    order: 1;
+  }
+
+  #navbarNav {
+    order: 2;
+  }
+
+  #navbar > .container-fluid > .d-flex.align-items-center {
+    order: 3;
+    margin-left: 0.5rem !important;
+  }
+
+  .theme-toggle {
+    margin-left: 0;
+  }
+}
 
 /* 7. SBM interactive demo (projects page) --------------------- */
 .project-tag {
