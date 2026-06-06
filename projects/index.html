@@ -9,14 +9,37 @@
   <meta name="description" content="Personal website of Cheng-Hau Yang.">
 
   <!-- Fonts and Icons -->
-  <link rel="stylesheet" type="text/css"
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Material+Icons&display=swap" />
 
   <!-- CSS Files -->
   <link rel="stylesheet" href="/assets/css/all.min.css">
   <link rel="stylesheet" href="/assets/css/academicons.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/custom.css">
   <link rel="canonical" href="/projects/">
+
+  <!-- Theme (must run before paint to avoid flash) -->
+  <script>
+    (function(){
+      try {
+        var saved = localStorage.getItem('theme');
+        var sys = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', saved || (sys ? 'dark' : 'light'));
+      } catch(e){}
+    })();
+    document.addEventListener('DOMContentLoaded', function(){
+      var btn = document.getElementById('themeToggle');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch(e){}
+      });
+    });
+  </script>
 
   <!-- Scripts -->
   <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
@@ -30,10 +53,16 @@
       <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Cheng-Hau</span>
         Yang</a>
 
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="d-flex align-items-center ml-auto">
+        <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
       <div class="collapse navbar-collapse text-right" id="navbarNav">
         <ul class="navbar-nav ml-auto flex-nowrap">
           <li class="nav-item ">
@@ -157,6 +186,151 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </div>
+    </div>
+
+    <div class="project">
+      <h2>Optimal Surrogate Boundary <span class="project-tag">interactive</span></h2>
+      <p>
+        The Shifted Boundary Method (SBM) replaces the true geometry boundary integration&nbsp;(&Gamma;)
+        with a surrogate boundary integration&nbsp;(&Gamma;&#771;) built from element edges, and uses a
+        Taylor expansion to shift the boundary condition from&nbsp;&Gamma;&#771; back to&nbsp;&Gamma;.
+        The accuracy of SBM is governed by how close &Gamma;&#771; lies to&nbsp;&Gamma;:
+        the smaller the shift distance&nbsp;|d|, the smaller the consistency error.
+      </p>
+      <p>
+        A cell-inclusion parameter&nbsp;&lambda; controls how the surrogate is constructed —
+        only cells whose interior fraction is at least&nbsp;(1&nbsp;&minus;&nbsp;&lambda;) are
+        kept. <strong>&lambda;&nbsp;=&nbsp;0.5</strong> minimizes the mean distance between
+        &Gamma;&#771; and&nbsp;&Gamma;, giving the best L<sup>2</sup> accuracy.
+        Drag the slider below to see how the surrogate boundary moves.
+      </p>
+
+      <div class="sbm-demo">
+        <div class="sbm-canvas-wrap">
+          <canvas id="sbm-canvas" width="480" height="480" aria-label="Shifted Boundary Method demo"></canvas>
+          <div class="sbm-presets">
+            <button type="button" data-l="0">&lambda; = 0.0</button>
+            <button type="button" data-l="0.5" class="opt">&lambda; = 0.5 &nbsp;optimal</button>
+            <button type="button" data-l="1">&lambda; = 1.0</button>
+          </div>
+        </div>
+        <div class="sbm-controls">
+          <div class="sbm-slider-row">
+            <label for="sbm-lambda">Lambda (&lambda;)</label>
+            <span class="sbm-value" id="sbm-value">0.50</span>
+          </div>
+          <input type="range" id="sbm-lambda" min="0" max="1" step="0.01" value="0.5">
+          <div class="sbm-legend">
+            <div class="sbm-legend-item">
+              <span class="sbm-dot true"></span>
+              <div>
+                <strong>True boundary &Gamma;</strong>
+                <p>Exact analytical or CAD geometry.</p>
+              </div>
+            </div>
+            <div class="sbm-legend-item">
+              <span class="sbm-dot surrogate"></span>
+              <div>
+                <strong>Surrogate boundary &Gamma;&#771;</strong>
+                <p>Approximation built from element edges.</p>
+              </div>
+            </div>
+          </div>
+          <p class="sbm-tip">
+            At <strong>&lambda; = 0.5</strong>, the surrogate balances kept/discarded cells
+            so the mean shift&nbsp;|d| &mdash; and therefore the L<sup>2</sup> error &mdash;
+            is minimised.
+          </p>
+        </div>
+      </div>
+
+      <p class="related-papers-inline">
+        Related:
+        <a href="https://doi.org/10.1016/j.cma.2023.116686" target="_blank" rel="noopener noreferrer" title="Optimal surrogate boundary selection and scalability studies for the SBM on octree meshes (CMAME 2024)">Yang&nbsp;(CMAME&nbsp;2024)</a>,
+        <a href="https://doi.org/10.1016/j.jcp.2025.114334" target="_blank" rel="noopener noreferrer" title="Simulating incompressible flows over complex geometries using the SBM with incomplete adaptive octree meshes (JCP 2025)">Yang&nbsp;(JCP&nbsp;2025)</a>,
+        <a href="https://doi.org/10.1016/j.cma.2024.117228" target="_blank" rel="noopener noreferrer" title="The shifted boundary method in isogeometric analysis (CMAME 2024)">Antonelli&nbsp;et&nbsp;al.&nbsp;(CMAME&nbsp;2024)</a>,
+        <a href="https://www.sciencedirect.com/science/article/pii/S0045782526000228" target="_blank" rel="noopener noreferrer" title="The generalized shifted boundary method for geometry-parametric PDEs and time-dependent domains (CMAME 2026)">Colom&eacute;s&nbsp;et&nbsp;al.&nbsp;(CMAME&nbsp;2026)</a>.
+      </p>
+
+      <script>
+        (function () {
+          var canvas = document.getElementById('sbm-canvas');
+          if (!canvas) return;
+          var slider = document.getElementById('sbm-lambda');
+          var valOut = document.getElementById('sbm-value');
+          var ctx = canvas.getContext('2d');
+
+          function palette() {
+            var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+            return {
+              grid:      dark ? '#2a313c' : '#e5e7eb',
+              trueB:     dark ? '#6aa3ff' : '#1f5fd3',
+              fill:      dark ? 'rgba(106,163,255,0.14)' : 'rgba(31,95,211,0.10)',
+              surrogate: '#f59e0b'
+            };
+          }
+
+          function isInside(x, y, g, cx, cy, r, lambda) {
+            var corners = [[x, y], [x + g, y], [x, y + g], [x + g, y + g]];
+            var n = 0;
+            for (var i = 0; i < 4; i++) {
+              var dx = corners[i][0] - cx, dy = corners[i][1] - cy;
+              if (Math.sqrt(dx * dx + dy * dy) <= r) n++;
+            }
+            var f = n / 4;
+            return f > 0 && f >= (1 - lambda - 1e-4);
+          }
+
+          function draw(lambda) {
+            var W = canvas.width, H = canvas.height, g = 40;
+            var cx = W / 2, cy = H / 2, r = 120;
+            var c = palette();
+            ctx.clearRect(0, 0, W, H);
+
+            ctx.strokeStyle = c.grid; ctx.lineWidth = 1;
+            for (var x = 0; x <= W; x += g) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+            for (var y = 0; y <= H; y += g) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+            ctx.strokeStyle = c.trueB; ctx.lineWidth = 3;
+            ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+
+            ctx.lineWidth = 2.5;
+            for (var x2 = 0; x2 < W; x2 += g) {
+              for (var y2 = 0; y2 < H; y2 += g) {
+                if (!isInside(x2, y2, g, cx, cy, r, lambda)) continue;
+                ctx.fillStyle = c.fill;
+                ctx.fillRect(x2, y2, g, g);
+                ctx.strokeStyle = c.surrogate;
+                if (y2 === 0     || !isInside(x2, y2 - g, g, cx, cy, r, lambda)) { ctx.beginPath(); ctx.moveTo(x2,     y2);     ctx.lineTo(x2 + g, y2);     ctx.stroke(); }
+                if (y2 + g >= H  || !isInside(x2, y2 + g, g, cx, cy, r, lambda)) { ctx.beginPath(); ctx.moveTo(x2,     y2 + g); ctx.lineTo(x2 + g, y2 + g); ctx.stroke(); }
+                if (x2 === 0     || !isInside(x2 - g, y2, g, cx, cy, r, lambda)) { ctx.beginPath(); ctx.moveTo(x2,     y2);     ctx.lineTo(x2,     y2 + g); ctx.stroke(); }
+                if (x2 + g >= W  || !isInside(x2 + g, y2, g, cx, cy, r, lambda)) { ctx.beginPath(); ctx.moveTo(x2 + g, y2);     ctx.lineTo(x2 + g, y2 + g); ctx.stroke(); }
+              }
+            }
+          }
+
+          function update() {
+            var v = parseFloat(slider.value);
+            var optimal = Math.abs(v - 0.5) < 1e-3;
+            valOut.textContent = v.toFixed(2);
+            valOut.classList.toggle('is-optimal', optimal);
+            draw(v);
+          }
+
+          slider.addEventListener('input', update);
+          document.querySelectorAll('.sbm-presets button').forEach(function (b) {
+            b.addEventListener('click', function () {
+              slider.value = b.getAttribute('data-l');
+              update();
+            });
+          });
+          new MutationObserver(update).observe(
+            document.documentElement,
+            { attributes: true, attributeFilter: ['data-theme'] }
+          );
+          update();
+        })();
+      </script>
     </div>
 
     <div class="project">

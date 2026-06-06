@@ -1,0 +1,462 @@
+/* ---------------------------------------------------------------
+   custom.css — overrides loaded AFTER main.css
+   --------------------------------------------------------------- */
+
+/* 0. Theme variables ------------------------------------------- */
+:root {
+  --bg:           #ffffff;
+  --bg-elev:     #f7f8fa;
+  --text:         #1f2937;
+  --text-strong: #111827;
+  --muted:        #6b7280;
+  --border:       #e5e7eb;
+  --ring:         rgba(0, 0, 0, 0.06);
+  --shadow:       0 8px 28px rgba(0, 0, 0, 0.12);
+  --accent-red:  #cc0000;
+  --accent-blue: #0A3BD9;
+  --dot-halo:    #ffffff;
+  --navbar-bg:   #fafafa;
+}
+
+[data-theme="dark"] {
+  --bg:           #0f1419;
+  --bg-elev:     #161b22;
+  --text:         #d1d5db;
+  --text-strong: #f3f4f6;
+  --muted:        #9ca3af;
+  --border:       #2a313c;
+  --ring:         rgba(255, 255, 255, 0.08);
+  --shadow:       0 8px 28px rgba(0, 0, 0, 0.5);
+  --accent-red:  #ff6b6b;
+  --accent-blue: #6aa3ff;
+  --dot-halo:    #0f1419;
+  --navbar-bg:   #11161d;
+}
+
+html, body {
+  background-color: var(--bg) !important;
+  color: var(--text);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* 1. Modern font stack ----------------------------------------- */
+/* Editorial pairing: Georgia (serif) body + Inter (sans) headings */
+body {
+  font-family: Georgia, "Times New Roman", "Source Han Serif TC",
+               "Noto Serif TC", serif;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.title,
+h1.title,
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+               "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  color: var(--text-strong);
+}
+
+/* 2. Profile photo --------------------------------------------- */
+.profile-img {
+  width: 220px !important;
+  height: 220px !important;
+  max-width: 220px !important;
+  border-radius: 50% !important;
+  object-fit: cover;
+  box-shadow: var(--shadow) !important;
+  outline: 1px solid var(--ring);
+  outline-offset: 4px;
+}
+
+/* 3. Name + subtitle hierarchy --------------------------------- */
+h1.title {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  font-size: 2.4rem;
+  margin-top: 1.25rem;
+}
+
+.content > .col h6 {
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.55;
+}
+
+/* Section title ("news") refinements */
+.news h1.title {
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem !important;
+}
+
+/* 4. News timeline --------------------------------------------- */
+.news {
+  position: relative;
+  padding-left: 0;
+}
+
+.news-timeline {
+  position: relative;
+  margin-left: 0.6rem;
+  padding-left: 1.75rem;
+  border-left: 1px solid var(--border);
+}
+
+.news-timeline .news-item {
+  position: relative;
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.news-timeline .news-item::before {
+  content: "";
+  position: absolute;
+  left: -1.95rem;
+  top: 0.55rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent-red);
+  box-shadow: 0 0 0 3px var(--dot-halo), 0 0 0 4px var(--border);
+}
+
+.news-timeline .news-date {
+  flex: 0 0 110px;
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: uppercase;
+  padding-top: 0.35rem;
+}
+
+.news-timeline .news-body {
+  flex: 1 1 0;
+  min-width: 0;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.news-timeline .news-body p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 575.98px) {
+  .news-timeline { padding-left: 1.25rem; }
+  .news-timeline .news-item { display: block; }
+  .news-timeline .news-item::before { left: -1.45rem; top: 0.4rem; }
+  .news-timeline .news-date { display: block; margin-bottom: 0.25rem; }
+}
+
+/* 5. Dark mode adjustments to existing components -------------- */
+[data-theme="dark"] .navbar.grey.lighten-5 {
+  background-color: var(--navbar-bg) !important;
+  border-bottom: 1px solid var(--border);
+  box-shadow: none !important;
+}
+
+[data-theme="dark"] .navbar.navbar-light .navbar-nav .nav-item .nav-link,
+[data-theme="dark"] .navbar.navbar-light .breadcrumb .nav-item .nav-link {
+  color: var(--text);
+}
+[data-theme="dark"] .navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+  color: var(--text-strong);
+}
+[data-theme="dark"] .navbar-active a { color: var(--accent-red) !important; }
+[data-theme="dark"] .navbar.navbar-light .navbar-toggler { color: var(--text); }
+[data-theme="dark"] .navbar.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* About-page links keep accent color; brighten in dark mode */
+[data-theme="dark"] .content a { color: var(--accent-blue); }
+[data-theme="dark"] .news a { color: var(--accent-red); }
+
+/* Progress bar */
+[data-theme="dark"] progress#progress { background-color: transparent; }
+[data-theme="dark"] progress#progress::-webkit-progress-bar { background: var(--bg-elev); }
+[data-theme="dark"] progress#progress::-webkit-progress-value { background: var(--accent-red); }
+
+/* Footer */
+footer { color: var(--muted); }
+
+/* 6. Theme toggle button --------------------------------------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.5rem;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.theme-toggle:hover {
+  background: var(--bg-elev);
+  transform: translateY(-1px);
+}
+.theme-toggle:focus { outline: none; box-shadow: 0 0 0 3px var(--ring); }
+.theme-toggle .icon-sun  { display: none; }
+.theme-toggle .icon-moon { display: inline-block; }
+[data-theme="dark"] .theme-toggle .icon-sun  { display: inline-block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+.theme-toggle svg { width: 18px; height: 18px; }
+
+/* 7. SBM interactive demo (projects page) --------------------- */
+.project-tag {
+  display: inline-block;
+  font-family: "Inter", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  background: rgba(31, 95, 211, 0.10);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  position: relative;
+  top: -0.15em;
+}
+[data-theme="dark"] .project-tag {
+  background: rgba(106, 163, 255, 0.14);
+}
+
+.sbm-demo {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 1.25rem 0 0.75rem;
+  padding: 0.9rem;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.sbm-canvas-wrap {
+  flex: 0 0 auto;
+  max-width: 320px;
+  width: 100%;
+}
+
+.sbm-canvas-wrap canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.sbm-presets {
+  display: flex;
+  gap: 0.3rem;
+  margin-top: 0.6rem;
+  flex-wrap: wrap;
+}
+.sbm-presets button {
+  font-family: "Inter", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.sbm-presets button:hover {
+  color: var(--text-strong);
+  border-color: var(--accent-blue);
+}
+.sbm-presets button.opt {
+  color: var(--accent-blue);
+  border-color: var(--accent-blue);
+  background: rgba(31, 95, 211, 0.06);
+}
+[data-theme="dark"] .sbm-presets button.opt {
+  background: rgba(106, 163, 255, 0.10);
+}
+
+.sbm-controls {
+  flex: 1 1 240px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sbm-slider-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-family: "Inter", sans-serif;
+}
+.sbm-slider-row label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin: 0;
+}
+.sbm-value {
+  font-family: "SF Mono", Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0.05rem 0.45rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.sbm-value.is-optimal {
+  color: #047857;
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.08);
+}
+[data-theme="dark"] .sbm-value.is-optimal {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.12);
+}
+
+#sbm-lambda {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+#sbm-lambda::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  border: 2px solid var(--bg);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+#sbm-lambda::-webkit-slider-thumb:hover { transform: scale(1.15); }
+#sbm-lambda::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  border: 2px solid var(--bg);
+  cursor: pointer;
+}
+
+.sbm-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.15rem;
+  font-family: "Inter", sans-serif;
+}
+.sbm-legend-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  color: var(--text);
+}
+.sbm-legend-item strong {
+  display: block;
+  font-weight: 600;
+  color: var(--text-strong);
+  line-height: 1.25;
+}
+.sbm-legend-item p {
+  margin: 0.05rem 0 0;
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+.sbm-dot {
+  display: inline-block;
+  flex-shrink: 0;
+  margin-top: 0.4rem;
+  width: 10px;
+  height: 3px;
+  border-radius: 2px;
+}
+.sbm-dot.true      { background: var(--accent-blue); height: 3px; }
+[data-theme="dark"] .sbm-dot.true { background: #6aa3ff; }
+.sbm-dot.surrogate { background: #f59e0b; }
+
+.sbm-tip {
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0.15rem 0 0;
+  padding: 0.5rem 0.7rem;
+  background: var(--bg);
+  border-left: 3px solid var(--accent-blue);
+  border-radius: 0 5px 5px 0;
+}
+
+@media (max-width: 720px) {
+  .sbm-demo { flex-direction: column; }
+  .sbm-canvas-wrap { max-width: 100%; }
+}
+
+/* Related publications inline pill row --------------------- */
+.related-papers-inline {
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 1rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+  line-height: 1.4;
+}
+.related-papers-inline > a {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.2rem 0.6rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+.related-papers-inline > a:hover {
+  color: var(--accent-blue);
+  border-color: var(--accent-blue);
+  background: rgba(31, 95, 211, 0.06);
+}
+[data-theme="dark"] .related-papers-inline > a:hover {
+  background: rgba(106, 163, 255, 0.10);
+}

@@ -10,13 +10,36 @@
   <meta name="google-site-verification" content="f7Wm_8GAdL582WP1I3hrOTwRLTMUJHAC62wzF9uEyfY" />
 
   <!-- Fonts and Icons -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Material+Icons&display=swap" />
 
   <!-- CSS Files -->
   <link rel="stylesheet" href="/assets/css/all.min.css">
   <link rel="stylesheet" href="/assets/css/academicons.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/custom.css">
   <link rel="canonical" href="/">
+
+  <!-- Theme (must run before paint to avoid flash) -->
+  <script>
+    (function(){
+      try {
+        var saved = localStorage.getItem('theme');
+        var sys = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', saved || (sys ? 'dark' : 'light'));
+      } catch(e){}
+    })();
+    document.addEventListener('DOMContentLoaded', function(){
+      var btn = document.getElementById('themeToggle');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch(e){}
+      });
+    });
+  </script>
 
   <!-- Scripts -->
   <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
@@ -34,9 +57,15 @@
           </span>
     </div>
 
-    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="d-flex align-items-center ml-auto">
+      <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
     <div class="collapse navbar-collapse text-right" id="navbarNav">
       <ul class="navbar-nav ml-auto flex-nowrap">
         <li class="nav-item navbar-active font-weight-bold">
@@ -146,55 +175,39 @@
   </div>
 
   <!-- News -->
-  <div class="news mt-3 p-0">
+  <div class="news mt-5 p-0">
     <h1 class="title mb-4 p-0">news</h1>
 
-    <div class="row p-0 position-relative mb-2">
-      <div class="col-sm-2 p-0">
-      <span class="badge danger-color-dark font-weight-bold text-uppercase align-middle date ml-3">
-        Oct 10, 2025
-      </span>
+    <div class="news-timeline">
+
+      <div class="news-item">
+        <div class="news-date">Oct 10, 2025</div>
+        <div class="news-body">
+          <p>
+            I received the
+            <a href="/news/25-10-10/"
+               style="color:#cc0000; font-weight:500; text-decoration:none;">Robert&nbsp;J.&nbsp;Melosh Medal</a>
+            for the best student paper in Finite Element Analysis
+            (featured in
+            <a href="https://news.engineering.iastate.edu/2026/01/13/cheng-hau-yang-awarded-robert-j-melosh-medal/"
+               target="_blank" rel="noopener noreferrer"
+               style="color:#0A3BD9;">Engineering News</a>).
+          </p>
+        </div>
       </div>
 
-      <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
-
-        <p>
-          I received the
-          <span class="position-relative d-inline-block">
-    <a href="/news/25-10-10/" class="stretched-link"
-       style="color:#cc0000; font-weight:normal; text-decoration:none;">
-      Robert J. Melosh Medal
-    </a>
-  </span>
-          for the best student paper in Finite Element Analysis
-          (Featured in
-          <a href="https://news.engineering.iastate.edu/2026/01/13/cheng-hau-yang-awarded-robert-j-melosh-medal/"
-             target="_blank" rel="noopener noreferrer"
-             style="color:#0A3BD9; position:relative; z-index:2;">
-            Engineering News
-          </a>).
-        </p>
+      <div class="news-item">
+        <div class="news-date">Dec 28, 2023</div>
+        <div class="news-body">
+          <p>
+            I finished the PhD Residency at
+            <a href="/news/23-12-28/"
+               style="color:#cc0000; font-weight:500; text-decoration:none;">Google&nbsp;X</a>.
+          </p>
+        </div>
       </div>
+
     </div>
-
-    <div class="row p-0 position-relative mb-2">
-      <div class="col-sm-2 p-0">
-      <span class="badge danger-color-dark font-weight-bold text-uppercase align-middle date ml-3">
-        Dec 28, 2023
-      </span>
-      </div>
-
-      <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
-        <p class="mb-1">
-          I finished the PhD Residency at
-          <span class="position-relative d-inline-block">
-            <a href="/news/23-12-28/" class="stretched-link"
-               style="color:#cc0000; font-weight:normal; text-decoration:none;">Google X</a>
-          </span>.
-        </p>
-      </div>
-    </div>
-
   </div>
 
 </div>
