@@ -26,8 +26,7 @@
 		(function(){
 			try {
 				var saved = localStorage.getItem('theme');
-				var sys = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-				document.documentElement.setAttribute('data-theme', saved || (sys ? 'dark' : 'light'));
+				document.documentElement.setAttribute('data-theme', saved || 'light');
 			} catch(e){}
 		})();
 		document.addEventListener('DOMContentLoaded', function(){
@@ -181,7 +180,7 @@
 					<ul class="card-text font-weight-light list-group list-group-flush">
 
 						<li class="list-group-item">Computational Mechanics focuses on developing scalable and robust numerical
-							methods for simulating complex multiphysics flows over irregular geometries, integrating PDE solvers and
+							methods for simulating complex multiphysics problems on irregular domains, integrating PDE solvers with
 							high-performance computing.</li>
 
 					</ul>
