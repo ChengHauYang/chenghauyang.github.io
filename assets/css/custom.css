@@ -184,6 +184,79 @@ h1.title {
 [data-theme="dark"] .content a { color: var(--accent-blue); }
 [data-theme="dark"] .news a { color: var(--accent-red); }
 
+[data-theme="dark"] .card,
+[data-theme="dark"] .list-group-item,
+[data-theme="dark"] .table {
+  background-color: var(--bg-elev) !important;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .card {
+  box-shadow: none;
+}
+
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .cv .title,
+[data-theme="dark"] .cv b,
+[data-theme="dark"] .cv strong {
+  color: var(--text-strong);
+}
+
+[data-theme="dark"] .table td,
+[data-theme="dark"] .table th {
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .cv .item,
+[data-theme="dark"] .cv .item-title,
+[data-theme="dark"] .cv .subitem,
+[data-theme="dark"] .cv li,
+[data-theme="dark"] .cv p {
+  color: var(--text);
+}
+
+[data-theme="dark"] .cv a b,
+[data-theme="dark"] .cv a strong {
+  color: var(--accent-blue);
+}
+
+[data-theme="dark"] .badge.grey {
+  background-color: #2a313c !important;
+  color: var(--text-strong) !important;
+}
+
+/* Publication label columns need a fixed usable width for long tags such as CMAME. */
+.content > li,
+.bibliography li {
+  list-style: none;
+}
+
+.content > li .abbr .badge,
+.bibliography .abbr .badge {
+  box-sizing: border-box;
+  min-width: 4.25rem;
+  width: auto !important;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.2;
+}
+
+@media (min-width: 576px) {
+  .content > li .abbr,
+  .bibliography .abbr {
+    flex: 0 0 4.75rem;
+    max-width: 4.75rem;
+  }
+
+  .content > li .abbr + [class*="col-sm-11"],
+  .bibliography .abbr + [class*="col-sm-11"] {
+    flex: 1 1 0;
+    max-width: calc(100% - 4.75rem);
+  }
+}
+
 /* Progress bar */
 [data-theme="dark"] progress#progress { background-color: transparent; }
 [data-theme="dark"] progress#progress::-webkit-progress-bar { background: var(--bg-elev); }
