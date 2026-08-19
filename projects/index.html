@@ -132,7 +132,51 @@
 
     <h1>projects</h1>
 
-    <div class="project">
+    <nav class="project-map" aria-labelledby="project-map-title">
+      <div class="project-map-heading">
+        <div>
+          <span class="project-map-kicker">Bird's-eye view</span>
+          <h2 id="project-map-title">Research map</h2>
+        </div>
+        <p>Select a topic to jump directly to the project.</p>
+      </div>
+
+      <a class="project-map-overview" href="#research-overview">
+        <span>Research overview</span>
+        <strong>Geometry to physics without fitted meshing</strong>
+      </a>
+
+      <div class="project-map-branches">
+        <section class="project-map-branch methods" aria-labelledby="map-methods">
+          <h3 id="map-methods">Core numerical methods</h3>
+          <div class="project-map-links">
+            <a href="#sczm"><span>01</span>SCZM</a>
+            <a href="#optimal-surrogate"><span>02</span>Optimal surrogate boundary</a>
+            <a href="#parallel-sbm"><span>03</span>Parallel octree SBM</a>
+            <a href="#adaptive-sbm"><span>04</span>Adaptive mesh refinement with SBM</a>
+          </div>
+        </section>
+
+        <section class="project-map-branch software" aria-labelledby="map-software">
+          <h3 id="map-software">Scientific data &amp; software</h3>
+          <div class="project-map-links">
+            <a href="#flowbench"><span>05</span>FlowBench</a>
+            <a href="#welding"><span>06</span>Welding workflows</a>
+            <a href="#distributed-mesh"><span>07</span>Distributed interfaces</a>
+          </div>
+        </section>
+
+        <section class="project-map-branch applications" aria-labelledby="map-applications">
+          <h3 id="map-applications">Multiphysics applications</h3>
+          <div class="project-map-links">
+            <a href="#left-ventricle"><span>08</span>Cardiac flow</a>
+            <a href="#pulsating-jet"><span>09</span>Pulsating jets</a>
+          </div>
+        </section>
+      </div>
+    </nav>
+
+    <div class="project" id="research-overview">
       <h2>
         <a href="https://www.youtube.com/watch?v=q6KfmhSczqY&t=35s" target="_blank" rel="noopener noreferrer">
           From Geometry to Physics without Boundary-Fitted Meshing
@@ -152,42 +196,43 @@
       </div>
     </div>
 
-    <div class="project">
-      <h2>Left ventricle simulations Using the Immersogeometric Analysis</h2>
+    <div class="project" id="sczm">
+      <h2>
+        <a href="https://doi.org/10.1016/j.cma.2026.119259" target="_blank" rel="noopener noreferrer">
+          Shifted Cohesive-Zone Method (SCZM)
+        </a>
+        <span class="project-tag">CMAME 2026</span>
+      </h2>
       <p>
-        This project focuses on simulating the left ventricle using immersogeometric analysis. I am responsible for
-        generating volumetric meshes for the finite element method (FEM) from non-watertight surface meshes provided by
-        UT Austin. In addition, I implemented the Fortran code that reads the displacement of the heart wall and the
-        mitral valve, applying them as velocity boundary conditions for the fluid domain. The simulation follows a
-        one-way coupling approach.
+        The Shifted Cohesive-Zone Method enables cohesive fracture simulations on non-interface-fitted meshes by
+        enforcing traction-separation laws on a nearby surrogate interface. Implemented in
+        <a href="https://mooseframework.inl.gov/" target="_blank" rel="noopener noreferrer">MOOSE</a> and coupled
+        with <a href="https://applied-material-modeling.github.io/neml2/" target="_blank"
+          rel="noopener noreferrer">NEML2</a>, it supports history-dependent crystal plasticity while avoiding the
+        burden of generating interface-conformal meshes.
       </p>
-      <div class="video-container" style="text-align:center; margin-top: 1.5em;">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/e6eP7OAAQUk"
-          title="Left ventricle simulation" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+      <div class="video-container sczm-video" style="text-align:center; margin-top: 1.5em;">
+        <video controls loop playsinline preload="metadata"
+          aria-label="Comparison of cohesive-zone results on a voxelated mesh without and with the Shifted Cohesive-Zone Method">
+          <source src="videos/sczm-3d-comparison.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p>
+          SCZM (translucent surfaces) produces results on a voxelated, non-interface-fitted mesh that closely match the
+          interface-fitted solution (black wireframe). Applying CZM directly on the same mesh without the shifted
+          formulation produces results that differ significantly from the interface-fitted solution.
+        </p>
       </div>
+      <p class="related-papers-inline">
+        Paper:
+        <a href="https://doi.org/10.1016/j.cma.2026.119259" target="_blank" rel="noopener noreferrer"
+          title="A shifted cohesive-zone method for non-interface-fitted meshes with applications to crystal plasticity">
+          Yang, Messner &amp; Hu (CMAME 2026)
+        </a>
+      </p>
     </div>
 
-    <div class="project">
-      <h2>Pulsating Jet Simulations</h2>
-      <p>
-        Using the <a href="https://www.sciencedirect.com/science/article/abs/pii/S0021999122009378" target="_blank"
-          rel="noopener noreferrer">
-          <em>Proteus</em> framework</a>, I implemented custom boundary and initial conditions for pulsating jet
-        simulations. These simulations were executed on the
-        <a href="https://frontera.tacc.utexas.edu/" target="_blank" rel="noopener noreferrer">Frontera
-          supercomputer</a>, followed by postprocessing and visualization of the results.
-      </p>
-      <div class="video-container" style="text-align:center; margin-top: 1.5em;">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/pmOrgdw2iDg"
-          title="Pulsating Jet Simulations" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="project">
+    <div class="project" id="optimal-surrogate">
       <h2>Optimal Surrogate Boundary <span class="project-tag">interactive</span></h2>
       <p>
         The Shifted Boundary Method (SBM) replaces the true geometry boundary integration&nbsp;(&Gamma;)
@@ -332,7 +377,7 @@
       </script>
     </div>
 
-    <div class="project">
+    <div class="project" id="parallel-sbm">
       <h2>
         <a href="https://doi.org/10.1016/j.jcp.2025.114334" target="_blank" rel="noopener noreferrer">
           Highly Parallel Incompressible Flow Simulations Using the Shifted Boundary Method
@@ -351,7 +396,7 @@
       </div>
     </div>
 
-    <div class="project">
+    <div class="project" id="adaptive-sbm">
       <h2>
         <a href="https://www.aimsciences.org/article/doi/10.3934/acse.2025012" target="_blank"
           rel="noopener noreferrer">
@@ -370,7 +415,7 @@
     </div>
 
 
-    <div class="project">
+    <div class="project" id="flowbench">
       <h2>
         <a href="https://openreview.net/forum?id=0xrOmmB2KQ" target="_blank" rel="noopener noreferrer">
           FlowBench: Incompressible Flow Simulations Dataset over Complex Geometries for SciML
@@ -392,7 +437,7 @@
     </div>
 
 
-    <div class="project">
+    <div class="project" id="welding">
       <h2>
         <a href="https://www.osti.gov/biblio/2583685" target="_blank" rel="noopener noreferrer">
           Improved Convergence and User Experience of Welding Simulations
@@ -446,7 +491,7 @@
     </div>
 
 
-    <div class="project">
+    <div class="project" id="distributed-mesh">
       <h2>
         <a href="https://github.com/idaholab/moose/pull/32309" target="_blank" rel="noopener noreferrer">
           Enabling BreakMeshByBlock on Distributed Meshes
@@ -490,6 +535,41 @@
           generic <code>interface</code> boundary, which inputs should target directly.
         </li>
       </ul>
+    </div>
+
+    <div class="project" id="left-ventricle">
+      <h2>Left ventricle simulations Using the Immersogeometric Analysis</h2>
+      <p>
+        This project focuses on simulating the left ventricle using immersogeometric analysis. I am responsible for
+        generating volumetric meshes for the finite element method (FEM) from non-watertight surface meshes provided by
+        UT Austin. In addition, I implemented the Fortran code that reads the displacement of the heart wall and the
+        mitral valve, applying them as velocity boundary conditions for the fluid domain. The simulation follows a
+        one-way coupling approach.
+      </p>
+      <div class="video-container" style="text-align:center; margin-top: 1.5em;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/e6eP7OAAQUk"
+          title="Left ventricle simulation" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="project" id="pulsating-jet">
+      <h2>Pulsating Jet Simulations</h2>
+      <p>
+        Using the <a href="https://www.sciencedirect.com/science/article/abs/pii/S0021999122009378" target="_blank"
+          rel="noopener noreferrer">
+          <em>Proteus</em> framework</a>, I implemented custom boundary and initial conditions for pulsating jet
+        simulations. These simulations were executed on the
+        <a href="https://frontera.tacc.utexas.edu/" target="_blank" rel="noopener noreferrer">Frontera
+          supercomputer</a>, followed by postprocessing and visualization of the results.
+      </p>
+      <div class="video-container" style="text-align:center; margin-top: 1.5em;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/pmOrgdw2iDg"
+          title="Pulsating Jet Simulations" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
     </div>
 
     <!-- Footer -->
