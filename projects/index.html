@@ -445,6 +445,53 @@
       </div>
     </div>
 
+
+    <div class="project">
+      <h2>
+        <a href="https://github.com/idaholab/moose/pull/32309" target="_blank" rel="noopener noreferrer">
+          Enabling BreakMeshByBlock on Distributed Meshes
+        </a>
+      </h2>
+
+      <p>
+        <code>BreakMeshByBlock</code> duplicates nodes along block interfaces so that cohesive-zone models and
+        other interface kernels can act on element pairs that share an interface but no longer share nodes. It
+        historically could not run on a <strong>distributed mesh</strong> for three distinct reasons: duplicating
+        nodes <strong>destroys the topological neighbor relation</strong>, the new node IDs (taken from the
+        rank-local <code>n_nodes()</code>) are <strong>not globally unique</strong>, and each rank sees only part
+        of the elements around a node so ranks <strong>disagree on which nodes to split</strong>. I helped fix
+        this across the stack:
+      </p>
+
+      <ul>
+        <li>
+          <a href="https://github.com/libMesh/libmesh/pull/4283" target="_blank" rel="noopener noreferrer">
+            libMesh #4283
+          </a>
+          &ndash; restore the lost neighbor relation by registering the two coincident sides of a split as a
+          <strong>disjoint boundary pair</strong>, reusing the periodic-BC machinery but with zero translation
+          (<code>t = 0</code>) since the surfaces are coincident.
+        </li>
+        <li>
+          <a href="https://github.com/idaholab/moose/pull/32309" target="_blank" rel="noopener noreferrer">
+            MOOSE #32309
+          </a>
+          &ndash; assign <strong>deterministic node IDs</strong> from global mesh attributes
+          (<code>(block+1)&middot;max_node_id + node_id</code>), so every rank computes the same ID without
+          communication, and add a <strong>two-way broadcast</strong> of each node's connected-block set so all
+          ranks make the same split decision.
+        </li>
+        <li>
+          <a href="https://github.com/RedbackProject/redback/pull/213" target="_blank" rel="noopener noreferrer">
+            Redback #213
+          </a>
+          &ndash; a worked example of migrating an old input to a distributed mesh: the generator now emits
+          <strong>named block-pair boundaries</strong> (e.g. <code>Block1_Block2</code>) instead of a single
+          generic <code>interface</code> boundary, which inputs should target directly.
+        </li>
+      </ul>
+    </div>
+
     <!-- Footer -->
     <footer>
       &copy; Copyright <span id="footer-year"></span> Cheng-Hau Yang.
