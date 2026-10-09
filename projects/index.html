@@ -209,7 +209,9 @@
         <a href="https://mooseframework.inl.gov/" target="_blank" rel="noopener noreferrer">MOOSE</a> and coupled
         with <a href="https://applied-material-modeling.github.io/neml2/" target="_blank"
           rel="noopener noreferrer">NEML2</a>, it supports history-dependent crystal plasticity while avoiding the
-        burden of generating interface-conformal meshes.
+        burden of generating interface-conformal meshes. For implementation details in MOOSE, please refer to the
+        <a href="https://www.osti.gov/servlets/purl/3422582" target="_blank" rel="noopener noreferrer">OSTI technical
+          report</a>.
       </p>
       <div class="video-container sczm-video" style="text-align:center; margin-top: 1.5em;">
         <video controls loop playsinline preload="metadata"
@@ -506,6 +508,12 @@
         rank-local <code>n_nodes()</code>) are <strong>not globally unique</strong>, and each rank sees only part
         of the elements around a node so ranks <strong>disagree on which nodes to split</strong>. I helped fix
         this across the stack:
+      </p>
+
+      <p>
+        For more implementation details and visual illustrations of the implementation, see the
+        <a href="https://www.osti.gov/servlets/purl/3422582" target="_blank" rel="noopener noreferrer">OSTI technical
+          report</a>.
       </p>
 
       <ul>
