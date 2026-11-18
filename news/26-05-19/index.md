@@ -13,7 +13,7 @@ Special thanks to the student chapter chairs — **Yanrong Xiao**, **Ozge Ozbayr
 <div class="post-img-grid">
 
   <figure class="post-img-wide">
-    <img src="/assets/img/usacm-seminar/mug.JPG" alt="Custom mug gift from USACM Student Chapter with seminar date 05.19.2026" class="post-img">
+    <img src="/assets/img/usacm-seminar/mug.JPG" alt="Custom mug gift from USACM Student Chapter with seminar date 05.19.2026" class="post-img" loading="lazy">
     <figcaption>
       A wonderfully thoughtful gift from the USACM Student Chapter — a custom mug with my portrait and the seminar date.
     </figcaption>

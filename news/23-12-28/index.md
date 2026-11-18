@@ -12,11 +12,18 @@ I joined a team working to invent what we hoped would become the future of chip 
 
 ## Pictures
 
-<div style="display: flex; gap: 10px;">
-  <img src="/assets/img/Google/p1.jpg" style="width: 50%; border-radius: 6px;">
-  <img src="/assets/img/Google/p2.jpg" style="width: 50%; border-radius: 6px;">
+<div class="post-img-grid">
+
+  <figure class="post-img-wide">
+    <img src="/assets/img/Google/p1.jpg" alt="Cheng-Hau Yang at Google X during PhD residency" class="post-img" loading="lazy">
+  </figure>
+
+  <figure class="post-img-wide">
+    <img src="/assets/img/Google/p2.jpg" alt="Google X campus photo during PhD residency" class="post-img" loading="lazy">
+  </figure>
+
+  <figure class="post-img-wide">
+    <img src="/assets/img/Google/p3.jpg" alt="Google X team and residency memories" class="post-img" loading="lazy">
+  </figure>
+
 </div>
-
-<br/>
-
-<img src="/assets/img/Google/p3.jpg" style="width: 100%; max-width: 700px; display: block; margin: 0 auto; border-radius: 6px;">

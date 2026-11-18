@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>Cheng-Hau Yang | publications</title>
-  <meta name="description" content="Personal website of Cheng-Hau Yang.">
+  <meta name="description" content="Publications by Cheng-Hau Yang — journal articles, preprints, and technical reports on immersed FEM, SCZM, SBM, MOOSE-NEML2, and SciML benchmarks.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cheng-Hau Yang | Publications">
+  <meta property="og:description" content="14 journal articles and 4 technical reports &amp; preprints on computational mechanics, MOOSE-NEML2, and scientific machine learning.">
+  <meta property="og:url" content="https://chenghauyang.github.io/publications/">
+  <meta property="og:image" content="https://chenghauyang.github.io/assets/img/ch-photo2.jpg">
+  <meta name="twitter:card" content="summary">
 
   <!-- Fonts and Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,14 +28,15 @@
   <link rel="stylesheet" href="/assets/css/academicons.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
-  <link rel="canonical" href="/publications/">
+  <link rel="canonical" href="https://chenghauyang.github.io/publications/">
 
   <!-- Theme (must run before paint to avoid flash) -->
   <script>
     (function(){
       try {
         var saved = localStorage.getItem('theme');
-        document.documentElement.setAttribute('data-theme', saved || 'light');
+        var preferred = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', saved || preferred);
       } catch(e){}
     })();
     document.addEventListener('DOMContentLoaded', function(){
@@ -37,9 +49,6 @@
       });
     });
   </script>
-
-  <!-- Scripts -->
-  <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 </head>
 <body>
   <!-- Header -->
@@ -100,14 +109,6 @@
 
 
 
-              <li class="nav-item ">
-<!--                  <a class="nav-link" href="/teaching/"> -->
-<!--                    teaching -->
-                  </a>
-              </li>
-
-
-
 
         </ul>
       </div>
@@ -132,8 +133,20 @@
     <a href="https://scholar.google.com/citations?user=_Znf1w0AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
   </div>
 
+  <div class="pub-filter-bar" aria-label="Filter publications">
+    <input type="search" id="pubSearch" class="pub-search" placeholder="Filter by title, author, venue, or year..." aria-label="Filter publications">
+    <div class="pub-filter-chips" role="group" aria-label="Topic filters">
+      <button type="button" class="pub-chip active" data-topic="all">All</button>
+      <button type="button" class="pub-chip" data-topic="sbm">SBM / SCZM</button>
+      <button type="button" class="pub-chip" data-topic="moose">MOOSE / NEML2</button>
+      <button type="button" class="pub-chip" data-topic="sciml">SciML / Benchmarks</button>
+    </div>
+  </div>
+  <p id="pubEmpty" class="pub-empty">No matching publications found.</p>
+
   <h2 class="pub-section-title" id="journals">Journal Articles</h2>
 
+  <ol class="bibliography">
       <li>
           <div class="row m-0 mt-3 p-0">
               <div class="col-sm-1 p-0 abbr">
@@ -610,9 +623,11 @@
               </div>
           </div>
       </li>
+  </ol>
 
   <h2 class="pub-section-title" id="reports">Technical Reports &amp; Preprints</h2>
 
+  <ol class="bibliography">
       <li>
           <div class="row m-0 mt-3 p-0">
               <div class="col-sm-1 p-0 abbr">
@@ -739,6 +754,7 @@
               </div>
           </div>
       </li>
+  </ol>
 
   </div>
 
@@ -780,6 +796,66 @@
         });
       }
     });
+  </script>
+
+  <!-- Publications Filter -->
+  <script type="text/javascript">
+    (function () {
+      var searchInput = document.getElementById('pubSearch');
+      var chips = document.querySelectorAll('.pub-chip');
+      var lists = document.querySelectorAll('ol.bibliography');
+      var emptyMsg = document.getElementById('pubEmpty');
+      if (!searchInput || !lists.length) return;
+
+      var topicKeywords = {
+        sbm: ['shifted', 'sczm', 'cohesive', 'surrogate', 'octree', 'finite cell', 'non-conformal', 'immersed'],
+        moose: ['moose', 'neml2', 'welding', 'blackbear', 'libmesh'],
+        sciml: ['flowbench', 'mpfbench', 'mpf-bench', 'machine learning', 'neural', 'dmlr', 'benchmark']
+      };
+      var activeTopic = 'all';
+
+      function applyFilter() {
+        var query = searchInput.value.trim().toLowerCase();
+        var totalVisible = 0;
+
+        lists.forEach(function (list) {
+          var visibleInList = 0;
+          var items = list.querySelectorAll('li');
+          items.forEach(function (li) {
+            var text = li.textContent.toLowerCase();
+            var matchesQuery = !query || text.indexOf(query) !== -1;
+            var matchesTopic = activeTopic === 'all' || (topicKeywords[activeTopic] || []).some(function (kw) {
+              return text.indexOf(kw) !== -1;
+            });
+            var show = matchesQuery && matchesTopic;
+            li.style.display = show ? '' : 'none';
+            if (show) {
+              visibleInList++;
+              totalVisible++;
+            }
+          });
+          var heading = list.previousElementSibling;
+          if (heading && heading.classList.contains('pub-section-title')) {
+            heading.style.display = visibleInList ? '' : 'none';
+          }
+          list.style.display = visibleInList ? '' : 'none';
+        });
+
+        if (emptyMsg) {
+          emptyMsg.style.display = totalVisible === 0 ? 'block' : 'none';
+        }
+      }
+
+      searchInput.addEventListener('input', applyFilter);
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.forEach(function (c) { c.classList.remove('active'); });
+          chip.classList.add('active');
+          activeTopic = chip.getAttribute('data-topic') || 'all';
+          applyFilter();
+        });
+      });
+    })();
   </script>
 
 </body>

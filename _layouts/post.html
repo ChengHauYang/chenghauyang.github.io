@@ -7,6 +7,17 @@
   <title>{{ page.title }} | Cheng-Hau Yang</title>
   <meta name="description" content="{{ page.excerpt | strip_html | strip }}">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ page.title }} | Cheng-Hau Yang">
+  <meta property="og:description" content="{{ page.excerpt | strip_html | strip }}">
+  <meta property="og:url" content="https://chenghauyang.github.io{{ page.url }}">
+  <meta property="og:image" content="https://chenghauyang.github.io/assets/img/ch-photo2.jpg">
+  <meta name="twitter:card" content="summary">
+
   <!-- Fonts and Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,14 +29,15 @@
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
 
-  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="canonical" href="https://chenghauyang.github.io{{ page.url }}">
 
   <!-- Theme (must run before paint to avoid flash) -->
   <script>
     (function(){
       try {
         var saved = localStorage.getItem('theme');
-        document.documentElement.setAttribute('data-theme', saved || 'light');
+        var preferred = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', saved || preferred);
       } catch(e){}
     })();
     document.addEventListener('DOMContentLoaded', function(){
@@ -48,9 +60,9 @@
 
     <div class="row ml-1 ml-sm-0">
       <span class="contact-icon text-center" style="line-height: 1em;">
-        <a href="https://scholar.google.com/citations?user=_Znf1w0AAAAJ" target="_blank"><i class="ai ai-google-scholar-square gs-icon"></i></a>
-        <a href="https://github.com/ChengHauYang" target="_blank"><i class="fab fa-github-square gh-icon"></i></a>
-        <a href="https://www.linkedin.com/in/ychenghau" target="_blank"><i class="fab fa-linkedin li-icon"></i></a>
+        <a href="https://scholar.google.com/citations?user=_Znf1w0AAAAJ" target="_blank" rel="noopener noreferrer" title="Google Scholar" aria-label="Google Scholar"><i class="ai ai-google-scholar-square gs-icon"></i></a>
+        <a href="https://github.com/ChengHauYang" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"><i class="fab fa-github-square gh-icon"></i></a>
+        <a href="https://www.linkedin.com/in/ychenghau" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin li-icon"></i></a>
       </span>
     </div>
 
@@ -59,7 +71,7 @@
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
       </button>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
@@ -95,8 +107,9 @@
 
 <!-- FOOTER -->
 <footer class="text-center mt-5 mb-3">
-  &copy; Copyright 2025 Cheng-Hau Yang.
+  &copy; Copyright <span id="footer-year"></span> Cheng-Hau Yang.
 </footer>
+<script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 
 <!-- JavaScript -->
 <script src="/assets/js/jquery.min.js"></script>
