@@ -160,17 +160,18 @@
         <section class="project-map-branch software" aria-labelledby="map-software">
           <h3 id="map-software">Scientific data &amp; software</h3>
           <div class="project-map-links">
-            <a href="#flowbench"><span>05</span>FlowBench</a>
-            <a href="#welding"><span>06</span>Welding workflows</a>
-            <a href="#distributed-mesh"><span>07</span>Distributed interfaces</a>
+            <a href="#moose-neml2-gpu"><span>05</span>MOOSE&ndash;NEML2 &amp; GPU</a>
+            <a href="#flowbench"><span>06</span>FlowBench</a>
+            <a href="#welding"><span>07</span>Welding workflows</a>
+            <a href="#distributed-mesh"><span>08</span>Distributed interfaces</a>
           </div>
         </section>
 
         <section class="project-map-branch applications" aria-labelledby="map-applications">
           <h3 id="map-applications">Multiphysics applications</h3>
           <div class="project-map-links">
-            <a href="#left-ventricle"><span>08</span>Cardiac flow</a>
-            <a href="#pulsating-jet"><span>09</span>Pulsating jets</a>
+            <a href="#left-ventricle"><span>09</span>Cardiac flow</a>
+            <a href="#pulsating-jet"><span>10</span>Pulsating jets</a>
           </div>
         </section>
       </div>
@@ -181,12 +182,12 @@
         <a href="https://www.youtube.com/watch?v=q6KfmhSczqY&t=35s" target="_blank" rel="noopener noreferrer">
           From Geometry to Physics without Boundary-Fitted Meshing
         </a>
+        <span class="project-tag">USACM 2026</span>
       </h2>
       <p>
-        This talk gives a brief overview of my work on non-boundary- and non-interface-fitted methods for multiphysics
-        simulation on complex domains, focusing on the Shifted Boundary Method (SBM) and Shifted Interface Method (SIM).
-        I discuss recent efforts to make these methods more accurate, efficient, and broadly applicable, including
-        interface mechanics applications in solid mechanics and crystal plasticity.
+        This talk gives an overview of my work on non-boundary- and non-interface-fitted methods for multiphysics
+        simulation on complex domains, focusing on the Shifted Boundary Method (SBM) and Shifted Cohesive-Zone Method
+        (SCZM), including crystal plasticity and solid mechanics applications.
       </p>
       <div class="video-container" style="text-align:center; margin-top: 1.5em;">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/q6KfmhSczqY?start=35"
@@ -203,13 +204,17 @@
         </a>
         <span class="project-tag">CMAME 2026</span>
       </h2>
+      <p class="project-subtitle">MOOSE &middot; NEML2 &middot; Cohesive Fracture &amp; Crystal Plasticity</p>
       <p>
         The Shifted Cohesive-Zone Method enables cohesive fracture simulations on non-interface-fitted meshes by
-        enforcing traction-separation laws on a nearby surrogate interface. Implemented in
-        <a href="https://mooseframework.inl.gov/" target="_blank" rel="noopener noreferrer">MOOSE</a> and coupled
-        with <a href="https://applied-material-modeling.github.io/neml2/" target="_blank"
-          rel="noopener noreferrer">NEML2</a>, it supports history-dependent crystal plasticity while avoiding the
-        burden of generating interface-conformal meshes. For implementation details in MOOSE, please refer to the
+        enforcing traction-separation laws on a nearby surrogate interface. Implemented and upstreamed in
+        <a href="https://mooseframework.inl.gov/" target="_blank" rel="noopener noreferrer">MOOSE</a>
+        (<a href="https://github.com/idaholab/moose/pull/31938" target="_blank" rel="noopener noreferrer">#31938</a>,
+        <a href="https://github.com/idaholab/moose/pull/33398" target="_blank" rel="noopener noreferrer">#33398</a>,
+        <a href="https://github.com/idaholab/moose/pull/33667" target="_blank" rel="noopener noreferrer">#33667</a>)
+        and coupled with <a href="https://applied-material-modeling.github.io/neml2/" target="_blank"
+          rel="noopener noreferrer">NEML2</a>, it supports history-dependent crystal plasticity without generating
+        interface-conformal meshes. For implementation details in MOOSE, see the
         <a href="https://www.osti.gov/servlets/purl/3422582" target="_blank" rel="noopener noreferrer">OSTI technical
           report</a>.
       </p>
@@ -226,11 +231,14 @@
         </p>
       </div>
       <p class="related-papers-inline">
-        Paper:
+        Links:
         <a href="https://doi.org/10.1016/j.cma.2026.119259" target="_blank" rel="noopener noreferrer"
           title="A shifted cohesive-zone method for non-interface-fitted meshes with applications to crystal plasticity">
           Yang, Messner &amp; Hu (CMAME 2026)
         </a>
+        <a href="https://doi.org/10.2172/3422582" target="_blank" rel="noopener noreferrer">ANL-26/22 Report</a>
+        <a href="https://github.com/idaholab/moose/pull/31938" target="_blank" rel="noopener noreferrer">MOOSE #31938</a>
+        <a href="https://github.com/idaholab/moose/pull/33667" target="_blank" rel="noopener noreferrer">MOOSE #33667</a>
       </p>
     </div>
 
@@ -384,10 +392,11 @@
         <a href="https://doi.org/10.1016/j.jcp.2025.114334" target="_blank" rel="noopener noreferrer">
           Highly Parallel Incompressible Flow Simulations Using the Shifted Boundary Method
         </a>
+        <span class="project-tag">JCP 2025</span>
       </h2>
+      <p class="project-subtitle">Incomplete Adaptive Octrees &middot; Distributed MPI</p>
       <p>
-        This project focuses on simulating incompressible fluid flow over complex geometries using the Shifted Boundary
-        Method, built on a highly parallel incomplete octree framework.
+        Simulates incompressible fluid flow over complex 3D geometries using SBM on incomplete adaptive octree meshes, scaling to 1,280 MPI ranks and billions of DOFs with 10&times; faster k-d tree distance queries.
       </p>
 
       <div class="video-container" style="text-align:center; margin-top: 1.5em;">
@@ -402,11 +411,12 @@
       <h2>
         <a href="https://www.aimsciences.org/article/doi/10.3934/acse.2025012" target="_blank"
           rel="noopener noreferrer">
-          Efficient simulations based on Shifted Boundary Method and Adaptive Mesh Refinement
+          Efficient Simulations Based on Shifted Boundary Method and Adaptive Mesh Refinement
         </a>
+        <span class="project-tag">ACSE 2025</span>
       </h2>
-      <p>This project focuses on simulating fluid flow over complex geometries using the Shifted Boundary Method and
-        dynamic adaptive octree meshes.</p>
+      <p class="project-subtitle">Dynamic Octree AMR &middot; Fluid &amp; Thermal Flows</p>
+      <p>Combines SBM with dynamic vorticity- and physics-based adaptive octree refinement, reducing mesh size by up to 7&times; while resolving boundary layers and wakes.</p>
 
       <div class="video-container" style="text-align:center; margin-top: 1.5em;">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/apLB7ONXT5c"
@@ -416,16 +426,62 @@
       </div>
     </div>
 
+    <div class="project" id="moose-neml2-gpu">
+      <h2>
+        <a href="https://doi.org/10.1016/j.softx.2026.102937" target="_blank" rel="noopener noreferrer">
+          MOOSE&ndash;NEML2 Integration and GPU-Accelerated Solid Mechanics
+        </a>
+        <span class="project-tag">SoftwareX 2026</span>
+      </h2>
+      <p class="project-subtitle">MOOSE &middot; NEML2 v3 &middot; Kokkos / CUDA &middot; Marlin</p>
+      <p>
+        In collaboration with Idaho National Laboratory researchers, I contributed to the
+        <a href="https://mooseframework.inl.gov/" target="_blank" rel="noopener noreferrer">MOOSE</a>&ndash;<a href="https://applied-material-modeling.github.io/neml2/" target="_blank" rel="noopener noreferrer">NEML2</a>
+        v3 migration, package/build infrastructure, and boundary/interface execution capabilities, alongside
+        prototyping and benchmarking solid mechanics and NEML2 constitutive updates on GPUs with Kokkos and CUDA:
+      </p>
+
+      <ul>
+        <li>
+          <a href="https://github.com/idaholab/moose/pull/34170" target="_blank" rel="noopener noreferrer">
+            MOOSE #34170
+          </a>
+          &amp;
+          <a href="https://github.com/idaholab/marlin/pull/198" target="_blank" rel="noopener noreferrer">
+            Marlin #198
+          </a>
+          &ndash; NEML2 v3 migration and package/build infrastructure updates across MOOSE and Marlin.
+        </li>
+        <li>
+          <a href="https://github.com/idaholab/moose/pull/34422" target="_blank" rel="noopener noreferrer">
+            MOOSE #34422
+          </a>
+          &ndash; support external boundaries in <code>DomainUO</code> for boundary and interface execution workflows.
+        </li>
+        <li>
+          <a href="https://github.com/idaholab/moose/pull/33867" target="_blank" rel="noopener noreferrer">
+            MOOSE #33867
+          </a>
+          &ndash; enable Jacobian-based <code>automatic_scaling</code> for Kokkos kernels in GPU-accelerated simulations.
+        </li>
+      </ul>
+      <p class="related-papers-inline">
+        Papers:
+        <a href="https://doi.org/10.1016/j.softx.2026.102937" target="_blank" rel="noopener noreferrer">NEML2 v3 (SoftwareX 2026)</a>
+        <a href="https://doi.org/10.1016/j.softx.2026.103122" target="_blank" rel="noopener noreferrer">MOOSE 5.0 (SoftwareX 2026)</a>
+      </p>
+    </div>
 
     <div class="project" id="flowbench">
       <h2>
-        <a href="https://openreview.net/forum?id=0xrOmmB2KQ" target="_blank" rel="noopener noreferrer">
+        <a href="https://baskargroup.bitbucket.io/" target="_blank" rel="noopener noreferrer">
           FlowBench: Incompressible Flow Simulations Dataset over Complex Geometries for SciML
         </a>
+        <span class="project-tag">DMLR 2025</span>
       </h2>
+      <p class="project-subtitle">Co-First Author &middot; Open SciML Dataset</p>
       <p>
-        This framework was used to generate simulations of flow past complex geometries and
-        lid-driven cavity flow with obstacles for training scientific machine learning (SciML) models.
+        Generated over 10,000 SBM flow simulations past complex geometries and lid-driven cavity obstacles as an open benchmark for training scientific machine learning models.
       </p>
 
       <div class="video-container" style="text-align:center; margin-top: 1.5em;">
@@ -436,6 +492,12 @@
         <p style="text-align:center; font-style: italic; margin-top: 0.5em;">
           Flow past complex geometry (Argonne) using the Shifted Boundary Method. </p>
       </div>
+      <p class="related-papers-inline">
+        Links:
+        <a href="https://baskargroup.bitbucket.io/" target="_blank" rel="noopener noreferrer">Project Page</a>
+        <a href="https://openreview.net/forum?id=0xrOmmB2KQ" target="_blank" rel="noopener noreferrer">DMLR Paper</a>
+        <a href="https://arxiv.org/abs/2409.18032" target="_blank" rel="noopener noreferrer">arXiv</a>
+      </p>
     </div>
 
 
@@ -444,41 +506,44 @@
         <a href="https://www.osti.gov/biblio/2583685" target="_blank" rel="noopener noreferrer">
           Improved Convergence and User Experience of Welding Simulations
         </a>
+        <span class="project-tag">ANL-25/23</span>
       </h2>
+      <p class="project-subtitle">MOOSE &middot; libMesh &middot; BlackBear &middot; Element Activation &amp; Projection</p>
 
       <p>
-        To enhance user-friendliness and improve the convergence of
-        <strong>welding simulations</strong>, we introduced several key implementations:
+        To improve nonlinear convergence and reduce setup boilerplate in <strong>welding and element-activation simulations</strong>, we contributed several upstream changes across MOOSE, libMesh, and BlackBear:
       </p>
 
       <ul>
         <li>
           <a href="https://github.com/idaholab/moose/pull/30300" target="_blank" rel="noopener noreferrer">
-            Central block-restrictable control
+            MOOSE #30300
           </a>
+          &ndash; central block-restrictable control for subdomain-restricted workflows.
         </li>
         <li>
           <a href="https://github.com/idaholab/moose/pull/30630" target="_blank" rel="noopener noreferrer">
-            Improved initial condition settings for newly activated elements via IC (Initial Condition) extrapolation
-            using patch recovery
+            MOOSE #30630
           </a>
+          &ndash; patch-recovery initial condition extrapolation for newly activated elements.
         </li>
         <li>
           <a href="https://github.com/idaholab/blackbear/pull/417" target="_blank" rel="noopener noreferrer">
-            A new <strong>Action</strong> enabling users to simulate the <strong>heated material addition
-              process</strong> in welding simulations
+            BlackBear #417
           </a>
+          &ndash; new Action simplifying heated material addition setup.
+        </li>
+        <li>
+          <a href="https://github.com/libMesh/libmesh/pull/4368" target="_blank" rel="noopener noreferrer">
+            libMesh #4368
+          </a>
+          &amp;
+          <a href="https://github.com/idaholab/moose/pull/32385" target="_blank" rel="noopener noreferrer">
+            MOOSE #32385
+          </a>
+          &ndash; selective element/variable projection APIs for <code>ElementSubdomainModifier</code> reinitialization.
         </li>
       </ul>
-
-      <p>
-        In FY26, we extended libMesh projection APIs to support
-        <strong>selected elements and variables</strong>
-        (<a href="https://github.com/libMesh/libmesh/pull/4368" target="_blank" rel="noopener noreferrer">PR #4368</a>),
-        improving the reinitialization workflow of
-        <a href="https://github.com/idaholab/moose/pull/32385" target="_blank"
-          rel="noopener noreferrer">ElementSubdomainModifier</a>.
-      </p>
 
       <div class="video-container" style="text-align:center; margin-top: 1.5em;">
         <video width="560" height="315" controls>
@@ -496,18 +561,13 @@
     <div class="project" id="distributed-mesh">
       <h2>
         <a href="https://github.com/idaholab/moose/pull/32309" target="_blank" rel="noopener noreferrer">
-          Enabling BreakMeshByBlock on Distributed Meshes
+          Distributed Interfaces &amp; BreakMeshByBlock
         </a>
       </h2>
+      <p class="project-subtitle">MOOSE &middot; libMesh &middot; DistributedMesh &amp; Cohesive Interfaces</p>
 
       <p>
-        <code>BreakMeshByBlock</code> duplicates nodes along block interfaces so that cohesive-zone models and
-        other interface kernels can act on element pairs that share an interface but no longer share nodes. It
-        historically could not run on a <strong>distributed mesh</strong> for three distinct reasons: duplicating
-        nodes <strong>destroys the topological neighbor relation</strong>, the new node IDs (taken from the
-        rank-local <code>n_nodes()</code>) are <strong>not globally unique</strong>, and each rank sees only part
-        of the elements around a node so ranks <strong>disagree on which nodes to split</strong>. I helped fix
-        this across the stack:
+        <code>BreakMeshByBlock</code> duplicates nodes along block interfaces so cohesive-zone models and interface kernels can operate across disconnected element pairs. Supporting <code>DistributedMesh</code> required restoring lost neighbor topology, avoiding rank-local node ID collisions, and synchronizing split decisions across MPI ranks:
       </p>
 
       <p>
@@ -521,38 +581,39 @@
           <a href="https://github.com/libMesh/libmesh/pull/4283" target="_blank" rel="noopener noreferrer">
             libMesh #4283
           </a>
-          &ndash; restore the lost neighbor relation by registering the two coincident sides of a split as a
-          <strong>disjoint boundary pair</strong>, reusing the periodic-BC machinery but with zero translation
-          (<code>t = 0</code>) since the surfaces are coincident.
+          &ndash; register coincident split sides as a zero-translation disjoint boundary pair to preserve neighbor queries.
         </li>
         <li>
           <a href="https://github.com/idaholab/moose/pull/32309" target="_blank" rel="noopener noreferrer">
             MOOSE #32309
           </a>
-          &ndash; assign <strong>deterministic node IDs</strong> from global mesh attributes
-          (<code>(block+1)&middot;max_node_id + node_id</code>), so every rank computes the same ID without
-          communication, and add a <strong>two-way broadcast</strong> of each node's connected-block set so all
-          ranks make the same split decision.
+          &ndash; deterministic global node IDs and two-way broadcast of connected-block sets across MPI ranks.
+        </li>
+        <li>
+          <a href="https://github.com/idaholab/moose/pull/33902" target="_blank" rel="noopener noreferrer">
+            MOOSE #33902
+          </a>
+          &amp;
+          <a href="https://github.com/idaholab/moose/pull/34283" target="_blank" rel="noopener noreferrer">
+            MOOSE #34283
+          </a>
+          &ndash; improved cohesive-interface handling, boundary callbacks, and consistent Jacobians.
         </li>
         <li>
           <a href="https://github.com/RedbackProject/redback/pull/213" target="_blank" rel="noopener noreferrer">
             Redback #213
           </a>
-          &ndash; a worked example of migrating an old input to a distributed mesh: the generator now emits
-          <strong>named block-pair boundaries</strong> (e.g. <code>Block1_Block2</code>) instead of a single
-          generic <code>interface</code> boundary, which inputs should target directly.
+          &ndash; migrated downstream application inputs to named block-pair boundaries (e.g., <code>Block1_Block2</code>).
         </li>
       </ul>
     </div>
 
+    <div class="projects-archive-heading">Earlier Applications</div>
+
     <div class="project" id="left-ventricle">
-      <h2>Left ventricle simulations Using the Immersogeometric Analysis</h2>
+      <h2>Left Ventricle Simulations Using Immersogeometric Analysis</h2>
       <p>
-        This project focuses on simulating the left ventricle using immersogeometric analysis. I am responsible for
-        generating volumetric meshes for the finite element method (FEM) from non-watertight surface meshes provided by
-        UT Austin. In addition, I implemented the Fortran code that reads the displacement of the heart wall and the
-        mitral valve, applying them as velocity boundary conditions for the fluid domain. The simulation follows a
-        one-way coupling approach.
+        Generated volumetric FEM meshes from non-watertight cardiac surface meshes and implemented Fortran boundary-condition routines coupling heart-wall and mitral-valve kinematics to blood flow.
       </p>
       <div class="video-container" style="text-align:center; margin-top: 1.5em;">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/e6eP7OAAQUk"
@@ -565,12 +626,10 @@
     <div class="project" id="pulsating-jet">
       <h2>Pulsating Jet Simulations</h2>
       <p>
-        Using the <a href="https://www.sciencedirect.com/science/article/abs/pii/S0021999122009378" target="_blank"
-          rel="noopener noreferrer">
-          <em>Proteus</em> framework</a>, I implemented custom boundary and initial conditions for pulsating jet
-        simulations. These simulations were executed on the
-        <a href="https://frontera.tacc.utexas.edu/" target="_blank" rel="noopener noreferrer">Frontera
-          supercomputer</a>, followed by postprocessing and visualization of the results.
+        Implemented custom boundary and initial conditions in the
+        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0021999122009378" target="_blank"
+          rel="noopener noreferrer"><em>Proteus</em> framework</a> and executed 3D pulsating jet breakup simulations on
+        <a href="https://frontera.tacc.utexas.edu/" target="_blank" rel="noopener noreferrer">Frontera</a>.
       </p>
       <div class="video-container" style="text-align:center; margin-top: 1.5em;">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/pmOrgdw2iDg"
@@ -579,6 +638,8 @@
           allowfullscreen></iframe>
       </div>
     </div>
+
+  </div>
 
     <!-- Footer -->
     <footer>
