@@ -1148,7 +1148,7 @@ html {
   color: var(--muted);
 }
 
-/* ORCID & dark-mode navbar social icons */
+/* ORCID, Contact & dark-mode navbar social icons */
 .or-icon {
   background: #a6ce39;
   background-clip: text;
@@ -1158,6 +1158,21 @@ html {
 }
 .or-icon:hover {
   background: #c3de78;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+
+.em-icon {
+  background: #d9483b;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;
+}
+.em-icon:hover {
+  background: #ef776d;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
