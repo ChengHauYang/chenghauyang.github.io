@@ -62,6 +62,7 @@
             <a href="https://scholar.google.com/citations?user=_Znf1w0AAAAJ" target="_blank" rel="noopener noreferrer" title="Google Scholar" aria-label="Google Scholar"><i class="ai ai-google-scholar-square gs-icon"></i></a>
             <a href="https://github.com/ChengHauYang" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"><i class="fab fa-github-square gh-icon"></i></a>
             <a href="https://www.linkedin.com/in/ychenghau" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin li-icon"></i></a>
+            <a href="https://orcid.org/0000-0002-1149-3686" target="_blank" rel="noopener noreferrer" title="ORCID" aria-label="ORCID"><i class="ai ai-orcid-square or-icon"></i></a>
           </span>
     </div>
 
@@ -154,7 +155,6 @@
           Postdoctoral Appointee, Argonne National Laboratory
         </h6>
         <p class="hero-contact">
-          <a href="mailto:chenghau.yang@anl.gov">chenghau.yang@anl.gov</a> &middot;
           <a href="/assets/pdf/ChengHau_CV.pdf" target="_blank" rel="noopener noreferrer">CV (PDF)</a>
         </p>
       </div>
@@ -171,7 +171,7 @@
       I received my Ph.D. in Mechanical Engineering (Minor in Applied Mathematics) from <a href="https://www.iastate.edu/" target="_blank" rel="noopener noreferrer">Iowa State University</a>, advised by <a href="https://www.me.iastate.edu/bglab/" target="_blank" rel="noopener noreferrer">Dr. Baskar Ganapathysubramanian</a> and <a href="https://web.me.iastate.edu/idealab" target="_blank" rel="noopener noreferrer">Dr. Adarsh Krishnamurthy</a>, in collaboration with <a href="https://cee.duke.edu/people/guglielmo-scovazzi/" target="_blank" rel="noopener noreferrer">Dr. Guglielmo Scovazzi</a> on the Shifted Boundary Method (SBM) and Finite Cell Method (FCM). During my Ph.D., I also completed a residency at <a href="https://x.company" target="_blank" rel="noopener noreferrer">Google X</a> under <a href="https://www.dinoruic.com/" target="_blank" rel="noopener noreferrer">Dr. Dino Ruić</a>, where I worked on parallel <a href="https://www.dealii.org/" target="_blank" rel="noopener noreferrer">deal.II</a> parasitic extraction solvers and developed a remeshing-free geometry optimization method that reduced iteration runtime by 50%.
     </p>
     <p>
-      In addition to numerical algorithms and HPC software (<a href="https://mooseframework.inl.gov/" target="_blank" rel="noopener noreferrer">MOOSE</a>, <a href="https://www.dealii.org/" target="_blank" rel="noopener noreferrer">deal.II</a>, and <a href="https://github.com/paralab/Dendro-5.01" target="_blank" rel="noopener noreferrer">Dendro</a>), I work on scientific machine learning benchmarks (<a href="https://baskargroup.bitbucket.io/" target="_blank" rel="noopener noreferrer">FlowBench</a>, <a href="https://baskargroup.github.io/mpf-bench/" target="_blank" rel="noopener noreferrer">MPFBench</a>) and neural-network constitutive modeling. I welcome inquiries regarding research collaborations. <!-- and R&amp;D roles -->
+      In addition to numerical algorithms and HPC software (<a href="https://mooseframework.inl.gov/" target="_blank" rel="noopener noreferrer">MOOSE</a>, <a href="https://www.dealii.org/" target="_blank" rel="noopener noreferrer">deal.II</a>, and <a href="https://github.com/paralab/Dendro-5.01" target="_blank" rel="noopener noreferrer">Dendro</a>), I work on scientific machine learning benchmarks (<a href="https://baskargroup.bitbucket.io/" target="_blank" rel="noopener noreferrer">FlowBench</a>, <a href="https://baskargroup.github.io/mpf-bench/" target="_blank" rel="noopener noreferrer">MPFBench</a>) and neural-network constitutive modeling. I welcome inquiries regarding research collaborations via <a href="https://www.linkedin.com/in/ychenghau" target="_blank" rel="noopener noreferrer">LinkedIn</a>. <!-- and R&amp;D roles -->
     </p>
   </div>
 
@@ -282,7 +282,7 @@
   $(document).ready(function() {
     var navbarHeight = $('#navbar').outerHeight(true);
     $('body').css({ 'padding-top': navbarHeight });
-    $('progress-container').css({ 'padding-top': navbarHeight });
+    $('.progress-container').css({ 'padding-top': navbarHeight });
     var progressBar = $('#progress');
     progressBar.css({ 'top': navbarHeight });
     var getMax = function() { return $(document).height() - $(window).height(); }
@@ -301,7 +301,7 @@
       $(window).resize(function() {
         var navbarHeight = $('#navbar').outerHeight(true);
         $('body').css({ 'padding-top': navbarHeight });
-        $('progress-container').css({ 'padding-top': navbarHeight });
+        $('.progress-container').css({ 'padding-top': navbarHeight });
         progressBar.css({ 'top': navbarHeight });
         // On resize, both the 'max' and 'value' attributes need to be calculated.
         progressBar.attr({ max: getMax(), value: getValue() });

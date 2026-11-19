@@ -4,7 +4,7 @@ title: "I received the Robert J. Melosh Medal"
 date: 2025-10-10
 ---
 
-Honored to receive the Thirty-Sixth [Robert J. Melosh Medal](https://cee.duke.edu/about/awards-honors/melosh-medal)!
+Honored to receive the Thirty-Sixth [Robert J. Melosh Medal](https://cee.duke.edu/about/awards/melosh/)!
 
 My presentation topic was "Multiphysics Simulations of Flow Over Complex Geometries Using an Octree-Based Shifted Boundary Method."
 I highlighted my contributions to advancing the Shifted Boundary Method (SBM) to make it more accurate, efficient, and broadly applicable.

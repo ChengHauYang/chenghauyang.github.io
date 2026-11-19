@@ -1147,3 +1147,34 @@ html {
   font-size: 0.92rem;
   color: var(--muted);
 }
+
+/* ORCID & dark-mode navbar social icons */
+.or-icon {
+  background: #a6ce39;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;
+}
+.or-icon:hover {
+  background: #c3de78;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+
+[data-theme="dark"] .gh-icon {
+  color: #e5e7eb;
+  background: #e5e7eb;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+[data-theme="dark"] .gh-icon:hover {
+  color: #ffffff;
+  background: #ffffff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

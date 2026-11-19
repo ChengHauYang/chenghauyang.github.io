@@ -776,7 +776,7 @@
     $(document).ready(function () {
       var navbarHeight = $('#navbar').outerHeight(true);
       $('body').css({ 'padding-top': navbarHeight });
-      $('progress-container').css({ 'padding-top': navbarHeight });
+      $('.progress-container').css({ 'padding-top': navbarHeight });
       var progressBar = $('#progress');
       progressBar.css({ 'top': navbarHeight });
       var getMax = function () { return $(document).height() - $(window).height(); }
@@ -790,7 +790,7 @@
         $(window).resize(function () {
           var navbarHeight = $('#navbar').outerHeight(true);
           $('body').css({ 'padding-top': navbarHeight });
-          $('progress-container').css({ 'padding-top': navbarHeight });
+          $('.progress-container').css({ 'padding-top': navbarHeight });
           progressBar.css({ 'top': navbarHeight });
           progressBar.attr({ max: getMax(), value: getValue() });
         });
