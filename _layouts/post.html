@@ -104,6 +104,10 @@
     {{ content }}
   </div>
 
+  <p class="mt-4">
+    <a href="/#news" class="post-back-link">&larr; Back to News</a>
+  </p>
+
 </div>
 
 <!-- FOOTER -->
@@ -117,33 +121,7 @@
 <script src="/assets/js/popper.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/mdb.min.js"></script>
-
-<!-- Scrolling Progress Bar -->
-<script type="text/javascript">
-  $(document).ready(function () {
-    var navbarHeight = $('#navbar').outerHeight(true);
-    $('body').css({ 'padding-top': navbarHeight });
-    $('.progress-container').css({ 'padding-top': navbarHeight });
-    var progressBar = $('#progress');
-    progressBar.css({ 'top': navbarHeight });
-    var getMax = function () { return $(document).height() - $(window).height(); };
-    var getValue = function () { return $(window).scrollTop(); };
-    if ('max' in document.createElement('progress')) {
-      progressBar.attr({ max: getMax() });
-      progressBar.attr({ value: getValue() });
-      $(document).on('scroll', function () {
-        progressBar.attr({ value: getValue() });
-      });
-      $(window).resize(function () {
-        var navbarHeight = $('#navbar').outerHeight(true);
-        $('body').css({ 'padding-top': navbarHeight });
-        $('.progress-container').css({ 'padding-top': navbarHeight });
-        progressBar.css({ 'top': navbarHeight });
-        progressBar.attr({ max: getMax(), value: getValue() });
-      });
-    }
-  });
-</script>
+<script src="/assets/js/common.js"></script>
 
 </body>
 </html>

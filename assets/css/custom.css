@@ -275,8 +275,17 @@ h1.title {
 [data-theme="dark"] progress#progress::-webkit-progress-bar { background: var(--bg-elev); }
 [data-theme="dark"] progress#progress::-webkit-progress-value { background: var(--accent-red); }
 
-/* Footer */
-footer { color: var(--muted); }
+/* Footer: sits at the end of the page instead of overlaying content */
+body { padding-bottom: 0 !important; }
+footer {
+  position: static !important;
+  margin-top: 3rem;
+  padding: 1.25rem 0 !important;
+  color: var(--muted);
+  background-color: var(--bg) !important;
+  border-top: 1px solid var(--border);
+  box-shadow: none !important;
+}
 
 /* 6. Theme toggle button --------------------------------------- */
 #navbar > .container-fluid > .d-flex.align-items-center {
@@ -916,6 +925,17 @@ html {
   margin-bottom: 0;
 }
 
+/* Linked and unlinked project titles share one color; links reveal on hover */
+.content .project h2 a {
+  color: var(--text);
+  text-decoration: none;
+}
+.content .project h2 a:hover,
+.content .project h2 a:focus-visible {
+  color: var(--accent-blue);
+  text-decoration: underline;
+}
+
 .project-subtitle {
   font-family: "Inter", -apple-system, sans-serif;
   font-size: 0.78rem;
@@ -1045,22 +1065,37 @@ html {
   }
 }
 
-/* Dark mode bibliography author highlight & badge polish */
-[data-theme="dark"] .bibliography li .author nobr > em {
-  color: var(--accent-red);
+/* Bibliography author highlight & dark mode link polish */
+.bibliography li .author nobr > em {
+  color: var(--accent-blue);
 }
 [data-theme="dark"] .bibliography li .author a {
   color: var(--text);
 }
 
-/* Responsive project videos */
-.video-container video {
+/* Responsive project videos & embeds */
+.video-container video,
+.video-container iframe {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
 }
+.video-container iframe {
+  aspect-ratio: 16 / 9;
+}
 
-/* News post image grid & captions */
+/* News post navigation & image grid */
+.post-back-link {
+  display: inline-block;
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+.post-back-link:hover {
+  text-decoration: underline;
+}
 .post-img-grid {
   display: grid;
   gap: 1.5rem;
